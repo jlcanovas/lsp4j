@@ -1,3 +1,5 @@
+**This fork adds support for HTML/CORS in Eclipse LSP4J library**
+
 ## Eclipse LSP4J
 
 Java binding for the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol).
