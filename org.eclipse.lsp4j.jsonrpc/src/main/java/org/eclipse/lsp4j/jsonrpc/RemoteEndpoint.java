@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 import org.eclipse.lsp4j.jsonrpc.json.MessageConstants;
 import org.eclipse.lsp4j.jsonrpc.json.MessageJsonHandler;
 import org.eclipse.lsp4j.jsonrpc.json.MethodProvider;
+import org.eclipse.lsp4j.jsonrpc.messages.CORSMessage;
 import org.eclipse.lsp4j.jsonrpc.messages.CancelParams;
 import org.eclipse.lsp4j.jsonrpc.messages.Either;
 import org.eclipse.lsp4j.jsonrpc.messages.Message;
@@ -182,6 +183,10 @@ public class RemoteEndpoint implements Endpoint, MessageConsumer, MessageIssueHa
 		} else if (message instanceof ResponseMessage) {
 			ResponseMessage responseMessage = (ResponseMessage) message;
 			handleResponse(responseMessage);
+		// Adding support for CORS. 
+		} else if(message instanceof CORSMessage) {
+			out.consume(message);
+		// DONE
 		} else {
 			LOG.log(Level.WARNING, "Unkown message type.", message);
 		}

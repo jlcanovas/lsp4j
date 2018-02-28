@@ -12,6 +12,7 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
 import org.eclipse.lsp4j.jsonrpc.MessageConsumer;
+import org.eclipse.lsp4j.jsonrpc.messages.CORSMessage;
 import org.eclipse.lsp4j.jsonrpc.messages.Message;
 
 /**
@@ -50,21 +51,42 @@ public class StreamMessageConsumer implements MessageConsumer, MessageConstants 
 
 	@Override
 	public void consume(Message message) {
-		try {
-			String content = jsonHandler.serialize(message);
-			byte[] contentBytes = content.getBytes(encoding);
-			int contentLength = contentBytes.length;
-
-			String header = getHeader(contentLength);
-			byte[] headerBytes = header.getBytes(StandardCharsets.US_ASCII);
-
-			synchronized (outputLock) {
-				output.write(headerBytes);
-				output.write(contentBytes);
-				output.flush();
+		// Adding support for CORS. 
+		if(message instanceof CORSMessage) {
+			System.out.println("From StreamMessageConsumer");
+			String CORS = "HTTP/1.1 200 OK" + CRLF + 
+					"Content-Length: 0" + CRLF + 
+					"Connection: keep-alive" + CRLF + 
+					"Access-Control-Allow-Origin: " + CORSMessage.HOST + CRLF + 
+					"Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE" + CRLF + 
+					"Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept" + CRLF + CRLF ;
+			byte[] headerBytes = CORS.getBytes(StandardCharsets.US_ASCII);
+			try {
+				synchronized (outputLock) {
+					output.write(headerBytes);
+					output.flush();
+				}
+			} catch (IOException e) {
+				throw new RuntimeException(e);
 			}
-		} catch (IOException e) {
-			throw new RuntimeException(e);
+		// DONE
+		} else {
+			try {
+				String content = jsonHandler.serialize(message);
+				byte[] contentBytes = content.getBytes(encoding);
+				int contentLength = contentBytes.length;
+
+				String header = getHeader(contentLength);
+				byte[] headerBytes = header.getBytes(StandardCharsets.US_ASCII);
+
+				synchronized (outputLock) {
+					output.write(headerBytes);
+					output.write(contentBytes);
+					output.flush();
+				}
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 
@@ -74,6 +96,12 @@ public class StreamMessageConsumer implements MessageConsumer, MessageConstants 
 	 */
 	protected String getHeader(int contentLength) {
 		StringBuilder headerBuilder = new StringBuilder();
+		// Adding support for HTTP 
+		headerBuilder.append("HTTP/1.1 200 OK").append(CRLF);
+		appendHeader(headerBuilder, "Access-Control-Allow-Origin", CORSMessage.HOST).append(CRLF);
+		appendHeader(headerBuilder, "Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE").append(CRLF);
+		appendHeader(headerBuilder, "Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept").append(CRLF);
+		// DONE 
 		appendHeader(headerBuilder, CONTENT_LENGTH_HEADER, contentLength).append(CRLF);
 		if (!StandardCharsets.UTF_8.name().equals(encoding)) {
 			appendHeader(headerBuilder, CONTENT_TYPE_HEADER, JSON_MIME_TYPE);

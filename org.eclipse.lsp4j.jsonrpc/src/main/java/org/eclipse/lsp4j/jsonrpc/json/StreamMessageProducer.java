@@ -20,6 +20,7 @@ import org.eclipse.lsp4j.jsonrpc.MessageConsumer;
 import org.eclipse.lsp4j.jsonrpc.MessageIssueException;
 import org.eclipse.lsp4j.jsonrpc.MessageIssueHandler;
 import org.eclipse.lsp4j.jsonrpc.MessageProducer;
+import org.eclipse.lsp4j.jsonrpc.messages.CORSMessage;
 import org.eclipse.lsp4j.jsonrpc.messages.Message;
 
 /**
@@ -85,7 +86,12 @@ public class StreamMessageProducer implements MessageProducer, Closeable, Messag
 						if (c == '\n') {
 							if (newLine) {
 								// Two consecutive newlines have been read, which signals the start of the message content
-								if (headers.contentLength < 0) {
+								// Adding support for CORS
+								String httpMethod = debugBuilder.substring(0, debugBuilder.indexOf(" "));
+								if(httpMethod.equals("OPTIONS")) {
+									callback.consume(new CORSMessage());
+								// DONE
+								} else if (headers.contentLength < 0) {
 									fireError(new IllegalStateException("Missing header " + CONTENT_LENGTH_HEADER
 											+ " in input \"" + debugBuilder + "\""));
 								} else {
