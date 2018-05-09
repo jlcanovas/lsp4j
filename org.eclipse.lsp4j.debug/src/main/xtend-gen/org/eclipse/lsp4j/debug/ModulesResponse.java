@@ -7,7 +7,6 @@
  */
 package org.eclipse.lsp4j.debug;
 
-import java.util.Arrays;
 import org.eclipse.lsp4j.debug.Module;
 import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -78,33 +77,14 @@ public class ModulesResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ModulesResponse other = (ModulesResponse) obj;
-    if (this.modules == null) {
-      if (other.modules != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.modules, other.modules))
-      return false;
-    if (this.totalModules == null) {
-      if (other.totalModules != null)
-        return false;
-    } else if (!this.totalModules.equals(other.totalModules))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ModulesResponse is already defined in ModulesResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.modules== null) ? 0 : Arrays.deepHashCode(this.modules));
-    result = prime * result + ((this.totalModules== null) ? 0 : this.totalModules.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ModulesResponse is already defined in ModulesResponse.java.");
   }
 }

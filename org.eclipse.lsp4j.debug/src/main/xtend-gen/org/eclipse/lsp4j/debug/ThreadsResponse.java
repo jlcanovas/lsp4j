@@ -7,7 +7,6 @@
  */
 package org.eclipse.lsp4j.debug;
 
-import java.util.Arrays;
 import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
@@ -50,27 +49,14 @@ public class ThreadsResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ThreadsResponse other = (ThreadsResponse) obj;
-    if (this.threads == null) {
-      if (other.threads != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.threads, other.threads))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ThreadsResponse is already defined in ThreadsResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.threads== null) ? 0 : Arrays.deepHashCode(this.threads));
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ThreadsResponse is already defined in ThreadsResponse.java.");
   }
 }

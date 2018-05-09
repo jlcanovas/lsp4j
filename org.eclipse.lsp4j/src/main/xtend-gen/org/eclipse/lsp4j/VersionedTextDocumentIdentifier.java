@@ -7,74 +7,30 @@
  */
 package org.eclipse.lsp4j;
 
+import com.google.gson.annotations.JsonAdapter;
 import org.eclipse.lsp4j.TextDocumentIdentifier;
-import org.eclipse.xtext.xbase.lib.Pure;
-import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
+import org.eclipse.lsp4j.adapters.VersionedTextDocumentIdentifierTypeAdapter;
+import org.eclipse.lsp4j.generator.JsonRpcData;
 
 /**
  * An identifier to denote a specific version of a text document.
  */
+/* @JsonRpcData */@JsonAdapter(VersionedTextDocumentIdentifierTypeAdapter.Factory.class)
 @SuppressWarnings("all")
 public class VersionedTextDocumentIdentifier extends TextDocumentIdentifier {
   /**
-   * The version number of this document.
+   * The version number of this document. If a versioned text document identifier
+   * is sent from the server to the client and the file is not open in the editor
+   * (the server has not received an open notification before) the server can send
+   * `null` to indicate that the version is known and the content on disk is the
+   * truth (as specified with document content ownership).
    */
-  private int version;
+  private Integer version;
   
   public VersionedTextDocumentIdentifier() {
   }
   
-  public VersionedTextDocumentIdentifier(final int version) {
+  public VersionedTextDocumentIdentifier(final Integer version) {
     this.version = version;
-  }
-  
-  /**
-   * The version number of this document.
-   */
-  @Pure
-  public int getVersion() {
-    return this.version;
-  }
-  
-  /**
-   * The version number of this document.
-   */
-  public void setVersion(final int version) {
-    this.version = version;
-  }
-  
-  @Override
-  @Pure
-  public String toString() {
-    ToStringBuilder b = new ToStringBuilder(this);
-    b.add("version", this.version);
-    b.add("uri", getUri());
-    return b.toString();
-  }
-  
-  @Override
-  @Pure
-  public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    if (!super.equals(obj))
-      return false;
-    VersionedTextDocumentIdentifier other = (VersionedTextDocumentIdentifier) obj;
-    if (other.version != this.version)
-      return false;
-    return true;
-  }
-  
-  @Override
-  @Pure
-  public int hashCode() {
-    final int prime = 31;
-    int result = super.hashCode();
-    result = prime * result + this.version;
-    return result;
   }
 }

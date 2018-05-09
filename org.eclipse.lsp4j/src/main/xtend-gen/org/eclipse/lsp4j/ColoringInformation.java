@@ -7,6 +7,7 @@
  */
 package org.eclipse.lsp4j;
 
+import com.google.common.annotations.Beta;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.lsp4j.Range;
@@ -18,6 +19,7 @@ import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
  * Representation of a range and highlighting style identifiers that should be
  * highlighted based on the underlying model.
  */
+@Beta
 @SuppressWarnings("all")
 public class ColoringInformation {
   /**
@@ -92,33 +94,14 @@ public class ColoringInformation {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ColoringInformation other = (ColoringInformation) obj;
-    if (this.range == null) {
-      if (other.range != null)
-        return false;
-    } else if (!this.range.equals(other.range))
-      return false;
-    if (this.styles == null) {
-      if (other.styles != null)
-        return false;
-    } else if (!this.styles.equals(other.styles))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ColoringInformation is already defined in ColoringInformation.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.range== null) ? 0 : this.range.hashCode());
-    result = prime * result + ((this.styles== null) ? 0 : this.styles.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ColoringInformation is already defined in ColoringInformation.java.");
   }
 }

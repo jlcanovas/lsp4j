@@ -22,12 +22,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.lsp4j.jsonrpc.CompletableFutures;
+import org.eclipse.lsp4j.jsonrpc.Launcher;
 import org.eclipse.lsp4j.jsonrpc.RemoteEndpoint;
 import org.eclipse.lsp4j.jsonrpc.ResponseErrorException;
 import org.eclipse.lsp4j.jsonrpc.debug.DebugLauncher;
 import org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint;
 import org.eclipse.lsp4j.jsonrpc.services.JsonNotification;
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
+import org.eclipse.lsp4j.jsonrpc.validation.ReflectiveMessageValidator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -70,7 +72,7 @@ public class DebugIntegrationTest {
 				return CompletableFuture.completedFuture(param);
 			}
 		};
-		DebugLauncher<MyServer> clientSideLauncher = DebugLauncher.createLauncher(client, MyServer.class, in, out);
+		Launcher<MyServer> clientSideLauncher = DebugLauncher.createLauncher(client, MyServer.class, in, out);
 
 		// create server side
 		MyServer server = new MyServer() {
@@ -79,7 +81,7 @@ public class DebugIntegrationTest {
 				return CompletableFuture.completedFuture(param);
 			}
 		};
-		DebugLauncher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in2, out2);
+		Launcher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in2, out2);
 
 		clientSideLauncher.startListening();
 		serverSideLauncher.startListening();
@@ -125,7 +127,7 @@ public class DebugIntegrationTest {
 				});
 			}
 		};
-		DebugLauncher<MyServer> clientSideLauncher = DebugLauncher.createLauncher(client, MyServer.class, in, out);
+		Launcher<MyServer> clientSideLauncher = DebugLauncher.createLauncher(client, MyServer.class, in, out);
 
 		// create server side
 		MyServer server = new MyServer() {
@@ -134,7 +136,7 @@ public class DebugIntegrationTest {
 				return CompletableFuture.completedFuture(param);
 			}
 		};
-		DebugLauncher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in2, out2);
+		Launcher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in2, out2);
 
 		clientSideLauncher.startListening();
 		serverSideLauncher.startListening();
@@ -197,7 +199,7 @@ public class DebugIntegrationTest {
 				});
 			}
 		};
-		DebugLauncher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in, out);
+		Launcher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in, out);
 		serverSideLauncher.startListening().get(TIMEOUT, TimeUnit.MILLISECONDS);
 
 		Assert.assertEquals("Content-Length: 163\r\n\r\n" +
@@ -234,7 +236,7 @@ public class DebugIntegrationTest {
 				});
 			}
 		};
-		DebugLauncher<MyServer> clientSideLauncher = DebugLauncher.createLauncher(client, MyServer.class, in, out);
+		Launcher<MyServer> clientSideLauncher = DebugLauncher.createLauncher(client, MyServer.class, in, out);
 
 		// create server side
 		MyServer server = new MyServer() {
@@ -243,7 +245,7 @@ public class DebugIntegrationTest {
 				return CompletableFuture.completedFuture(param);
 			}
 		};
-		DebugLauncher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in2, out2);
+		Launcher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in2, out2);
 
 		clientSideLauncher.startListening();
 		serverSideLauncher.startListening();
@@ -295,7 +297,7 @@ public class DebugIntegrationTest {
 					return CompletableFuture.completedFuture(param);
 				}
 			};
-			DebugLauncher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in, out);
+			Launcher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in, out);
 			serverSideLauncher.startListening();
 
 			logMessages.await(Level.WARNING, "Unsupported notification method: foo1");
@@ -338,7 +340,7 @@ public class DebugIntegrationTest {
 					return CompletableFuture.completedFuture(param);
 				}
 			};
-			DebugLauncher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in, out);
+			Launcher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in, out);
 			serverSideLauncher.startListening();
 
 			logMessages.await(Level.INFO, "Unsupported notification method: $/foo1");
@@ -378,7 +380,7 @@ public class DebugIntegrationTest {
 				public void myNotification() {
 				}
 			};
-			DebugLauncher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in, out);
+			Launcher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in, out);
 			serverSideLauncher.startListening();
 
 			logMessages.await(Level.WARNING, "Unexpected params '{\"value\":\"foo\"}' for " + "'public abstract void "
@@ -394,5 +396,47 @@ public class DebugIntegrationTest {
         headerBuilder.append(CRLF);
         return headerBuilder.toString();
     }
+
+    /**
+     * Test a fully connected design with the {@link ReflectiveMessageValidator} enabled.
+     */
+	@Test
+	public void testValidatedRequests() throws Exception {
+		// create client side
+		PipedInputStream in = new PipedInputStream();
+		PipedOutputStream out = new PipedOutputStream();
+		PipedInputStream in2 = new PipedInputStream();
+		PipedOutputStream out2 = new PipedOutputStream();
+
+		in.connect(out2);
+		out.connect(in2);
+
+		MyClient client = new MyClient() {
+			@Override
+			public CompletableFuture<MyParam> askClient(MyParam param) {
+				return CompletableFuture.completedFuture(param);
+			}
+		};
+		Launcher<MyServer> clientSideLauncher = DebugLauncher.createLauncher(client, MyServer.class, in, out, true, null);
+
+		// create server side
+		MyServer server = new MyServer() {
+			@Override
+			public CompletableFuture<MyParam> askServer(MyParam param) {
+				return CompletableFuture.completedFuture(param);
+			}
+		};
+		Launcher<MyClient> serverSideLauncher = DebugLauncher.createLauncher(server, MyClient.class, in2, out2, true, null);
+
+		clientSideLauncher.startListening();
+		serverSideLauncher.startListening();
+
+		CompletableFuture<MyParam> fooFuture = clientSideLauncher.getRemoteProxy().askServer(new MyParam("FOO"));
+		CompletableFuture<MyParam> barFuture = serverSideLauncher.getRemoteProxy().askClient(new MyParam("BAR"));
+
+		Assert.assertEquals("FOO", fooFuture.get(TIMEOUT, TimeUnit.MILLISECONDS).value);
+		Assert.assertEquals("BAR", barFuture.get(TIMEOUT, TimeUnit.MILLISECONDS).value);
+	}
+
 
 }

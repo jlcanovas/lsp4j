@@ -7,7 +7,6 @@
  */
 package org.eclipse.lsp4j;
 
-import com.google.common.annotations.Beta;
 import org.eclipse.lsp4j.DidChangeConfigurationCapabilities;
 import org.eclipse.lsp4j.DidChangeWatchedFilesCapabilities;
 import org.eclipse.lsp4j.ExecuteCommandCapabilities;
@@ -53,12 +52,18 @@ public class WorkspaceClientCapabilities {
   private ExecuteCommandCapabilities executeCommand;
   
   /**
-   * Capabilities specific to the `workspace/didChangeWorkspaceFolders` notification.
+   * The client has support for workspace folders.
    * 
-   * This API is a <b>proposal</b> from LSP and may change.
+   * Since 3.6.0
    */
-  @Beta
   private Boolean workspaceFolders;
+  
+  /**
+   * The client supports `workspace/configuration` requests.
+   * 
+   * Since 3.6.0
+   */
+  private Boolean configuration;
   
   /**
    * The client supports applying batch edits to the workspace by supporting
@@ -153,9 +158,9 @@ public class WorkspaceClientCapabilities {
   }
   
   /**
-   * Capabilities specific to the `workspace/didChangeWorkspaceFolders` notification.
+   * The client has support for workspace folders.
    * 
-   * This API is a <b>proposal</b> from LSP and may change.
+   * Since 3.6.0
    */
   @Pure
   public Boolean getWorkspaceFolders() {
@@ -163,12 +168,31 @@ public class WorkspaceClientCapabilities {
   }
   
   /**
-   * Capabilities specific to the `workspace/didChangeWorkspaceFolders` notification.
+   * The client has support for workspace folders.
    * 
-   * This API is a <b>proposal</b> from LSP and may change.
+   * Since 3.6.0
    */
   public void setWorkspaceFolders(final Boolean workspaceFolders) {
     this.workspaceFolders = workspaceFolders;
+  }
+  
+  /**
+   * The client supports `workspace/configuration` requests.
+   * 
+   * Since 3.6.0
+   */
+  @Pure
+  public Boolean getConfiguration() {
+    return this.configuration;
+  }
+  
+  /**
+   * The client supports `workspace/configuration` requests.
+   * 
+   * Since 3.6.0
+   */
+  public void setConfiguration(final Boolean configuration) {
+    this.configuration = configuration;
   }
   
   @Override
@@ -182,69 +206,21 @@ public class WorkspaceClientCapabilities {
     b.add("symbol", this.symbol);
     b.add("executeCommand", this.executeCommand);
     b.add("workspaceFolders", this.workspaceFolders);
+    b.add("configuration", this.configuration);
     return b.toString();
   }
   
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    WorkspaceClientCapabilities other = (WorkspaceClientCapabilities) obj;
-    if (this.applyEdit == null) {
-      if (other.applyEdit != null)
-        return false;
-    } else if (!this.applyEdit.equals(other.applyEdit))
-      return false;
-    if (this.workspaceEdit == null) {
-      if (other.workspaceEdit != null)
-        return false;
-    } else if (!this.workspaceEdit.equals(other.workspaceEdit))
-      return false;
-    if (this.didChangeConfiguration == null) {
-      if (other.didChangeConfiguration != null)
-        return false;
-    } else if (!this.didChangeConfiguration.equals(other.didChangeConfiguration))
-      return false;
-    if (this.didChangeWatchedFiles == null) {
-      if (other.didChangeWatchedFiles != null)
-        return false;
-    } else if (!this.didChangeWatchedFiles.equals(other.didChangeWatchedFiles))
-      return false;
-    if (this.symbol == null) {
-      if (other.symbol != null)
-        return false;
-    } else if (!this.symbol.equals(other.symbol))
-      return false;
-    if (this.executeCommand == null) {
-      if (other.executeCommand != null)
-        return false;
-    } else if (!this.executeCommand.equals(other.executeCommand))
-      return false;
-    if (this.workspaceFolders == null) {
-      if (other.workspaceFolders != null)
-        return false;
-    } else if (!this.workspaceFolders.equals(other.workspaceFolders))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type WorkspaceClientCapabilities is already defined in WorkspaceClientCapabilities.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.applyEdit== null) ? 0 : this.applyEdit.hashCode());
-    result = prime * result + ((this.workspaceEdit== null) ? 0 : this.workspaceEdit.hashCode());
-    result = prime * result + ((this.didChangeConfiguration== null) ? 0 : this.didChangeConfiguration.hashCode());
-    result = prime * result + ((this.didChangeWatchedFiles== null) ? 0 : this.didChangeWatchedFiles.hashCode());
-    result = prime * result + ((this.symbol== null) ? 0 : this.symbol.hashCode());
-    result = prime * result + ((this.executeCommand== null) ? 0 : this.executeCommand.hashCode());
-    result = prime * result + ((this.workspaceFolders== null) ? 0 : this.workspaceFolders.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type WorkspaceClientCapabilities is already defined in WorkspaceClientCapabilities.java.");
   }
 }

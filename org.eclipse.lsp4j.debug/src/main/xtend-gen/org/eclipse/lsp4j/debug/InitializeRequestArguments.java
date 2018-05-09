@@ -271,75 +271,14 @@ public class InitializeRequestArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    InitializeRequestArguments other = (InitializeRequestArguments) obj;
-    if (this.clientID == null) {
-      if (other.clientID != null)
-        return false;
-    } else if (!this.clientID.equals(other.clientID))
-      return false;
-    if (this.adapterID == null) {
-      if (other.adapterID != null)
-        return false;
-    } else if (!this.adapterID.equals(other.adapterID))
-      return false;
-    if (this.locale == null) {
-      if (other.locale != null)
-        return false;
-    } else if (!this.locale.equals(other.locale))
-      return false;
-    if (this.linesStartAt1 == null) {
-      if (other.linesStartAt1 != null)
-        return false;
-    } else if (!this.linesStartAt1.equals(other.linesStartAt1))
-      return false;
-    if (this.columnsStartAt1 == null) {
-      if (other.columnsStartAt1 != null)
-        return false;
-    } else if (!this.columnsStartAt1.equals(other.columnsStartAt1))
-      return false;
-    if (this.pathFormat == null) {
-      if (other.pathFormat != null)
-        return false;
-    } else if (!this.pathFormat.equals(other.pathFormat))
-      return false;
-    if (this.supportsVariableType == null) {
-      if (other.supportsVariableType != null)
-        return false;
-    } else if (!this.supportsVariableType.equals(other.supportsVariableType))
-      return false;
-    if (this.supportsVariablePaging == null) {
-      if (other.supportsVariablePaging != null)
-        return false;
-    } else if (!this.supportsVariablePaging.equals(other.supportsVariablePaging))
-      return false;
-    if (this.supportsRunInTerminalRequest == null) {
-      if (other.supportsRunInTerminalRequest != null)
-        return false;
-    } else if (!this.supportsRunInTerminalRequest.equals(other.supportsRunInTerminalRequest))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type InitializeRequestArguments is already defined in InitializeRequestArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.clientID== null) ? 0 : this.clientID.hashCode());
-    result = prime * result + ((this.adapterID== null) ? 0 : this.adapterID.hashCode());
-    result = prime * result + ((this.locale== null) ? 0 : this.locale.hashCode());
-    result = prime * result + ((this.linesStartAt1== null) ? 0 : this.linesStartAt1.hashCode());
-    result = prime * result + ((this.columnsStartAt1== null) ? 0 : this.columnsStartAt1.hashCode());
-    result = prime * result + ((this.pathFormat== null) ? 0 : this.pathFormat.hashCode());
-    result = prime * result + ((this.supportsVariableType== null) ? 0 : this.supportsVariableType.hashCode());
-    result = prime * result + ((this.supportsVariablePaging== null) ? 0 : this.supportsVariablePaging.hashCode());
-    result = prime * result + ((this.supportsRunInTerminalRequest== null) ? 0 : this.supportsRunInTerminalRequest.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type InitializeRequestArguments is already defined in InitializeRequestArguments.java.");
   }
 }

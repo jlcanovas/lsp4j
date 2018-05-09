@@ -109,39 +109,14 @@ public class CodeActionParams {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    CodeActionParams other = (CodeActionParams) obj;
-    if (this.textDocument == null) {
-      if (other.textDocument != null)
-        return false;
-    } else if (!this.textDocument.equals(other.textDocument))
-      return false;
-    if (this.range == null) {
-      if (other.range != null)
-        return false;
-    } else if (!this.range.equals(other.range))
-      return false;
-    if (this.context == null) {
-      if (other.context != null)
-        return false;
-    } else if (!this.context.equals(other.context))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CodeActionParams is already defined in CodeActionParams.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.textDocument== null) ? 0 : this.textDocument.hashCode());
-    result = prime * result + ((this.range== null) ? 0 : this.range.hashCode());
-    result = prime * result + ((this.context== null) ? 0 : this.context.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CodeActionParams is already defined in CodeActionParams.java.");
   }
 }

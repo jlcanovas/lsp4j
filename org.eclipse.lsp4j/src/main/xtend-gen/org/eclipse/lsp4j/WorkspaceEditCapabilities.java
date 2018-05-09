@@ -11,6 +11,9 @@ import com.google.common.annotations.Beta;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
 
+/**
+ * Capabilities specific to `WorkspaceEdit`s
+ */
 @SuppressWarnings("all")
 public class WorkspaceEditCapabilities {
   /**
@@ -76,33 +79,14 @@ public class WorkspaceEditCapabilities {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    WorkspaceEditCapabilities other = (WorkspaceEditCapabilities) obj;
-    if (this.documentChanges == null) {
-      if (other.documentChanges != null)
-        return false;
-    } else if (!this.documentChanges.equals(other.documentChanges))
-      return false;
-    if (this.resourceChanges == null) {
-      if (other.resourceChanges != null)
-        return false;
-    } else if (!this.resourceChanges.equals(other.resourceChanges))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type WorkspaceEditCapabilities is already defined in WorkspaceEditCapabilities.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.documentChanges== null) ? 0 : this.documentChanges.hashCode());
-    result = prime * result + ((this.resourceChanges== null) ? 0 : this.resourceChanges.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type WorkspaceEditCapabilities is already defined in WorkspaceEditCapabilities.java.");
   }
 }

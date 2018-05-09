@@ -135,45 +135,14 @@ public class CompletionsArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    CompletionsArguments other = (CompletionsArguments) obj;
-    if (this.frameId == null) {
-      if (other.frameId != null)
-        return false;
-    } else if (!this.frameId.equals(other.frameId))
-      return false;
-    if (this.text == null) {
-      if (other.text != null)
-        return false;
-    } else if (!this.text.equals(other.text))
-      return false;
-    if (this.column == null) {
-      if (other.column != null)
-        return false;
-    } else if (!this.column.equals(other.column))
-      return false;
-    if (this.line == null) {
-      if (other.line != null)
-        return false;
-    } else if (!this.line.equals(other.line))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CompletionsArguments is already defined in CompletionsArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.frameId== null) ? 0 : this.frameId.hashCode());
-    result = prime * result + ((this.text== null) ? 0 : this.text.hashCode());
-    result = prime * result + ((this.column== null) ? 0 : this.column.hashCode());
-    result = prime * result + ((this.line== null) ? 0 : this.line.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CompletionsArguments is already defined in CompletionsArguments.java.");
   }
 }

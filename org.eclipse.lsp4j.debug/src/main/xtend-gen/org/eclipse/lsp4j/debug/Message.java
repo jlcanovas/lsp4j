@@ -217,63 +217,14 @@ public class Message {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Message other = (Message) obj;
-    if (this.id == null) {
-      if (other.id != null)
-        return false;
-    } else if (!this.id.equals(other.id))
-      return false;
-    if (this.format == null) {
-      if (other.format != null)
-        return false;
-    } else if (!this.format.equals(other.format))
-      return false;
-    if (this.variables == null) {
-      if (other.variables != null)
-        return false;
-    } else if (!this.variables.equals(other.variables))
-      return false;
-    if (this.sendTelemetry == null) {
-      if (other.sendTelemetry != null)
-        return false;
-    } else if (!this.sendTelemetry.equals(other.sendTelemetry))
-      return false;
-    if (this.showUser == null) {
-      if (other.showUser != null)
-        return false;
-    } else if (!this.showUser.equals(other.showUser))
-      return false;
-    if (this.url == null) {
-      if (other.url != null)
-        return false;
-    } else if (!this.url.equals(other.url))
-      return false;
-    if (this.urlLabel == null) {
-      if (other.urlLabel != null)
-        return false;
-    } else if (!this.urlLabel.equals(other.urlLabel))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type Message is already defined in Message.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.id== null) ? 0 : this.id.hashCode());
-    result = prime * result + ((this.format== null) ? 0 : this.format.hashCode());
-    result = prime * result + ((this.variables== null) ? 0 : this.variables.hashCode());
-    result = prime * result + ((this.sendTelemetry== null) ? 0 : this.sendTelemetry.hashCode());
-    result = prime * result + ((this.showUser== null) ? 0 : this.showUser.hashCode());
-    result = prime * result + ((this.url== null) ? 0 : this.url.hashCode());
-    result = prime * result + ((this.urlLabel== null) ? 0 : this.urlLabel.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type Message is already defined in Message.java.");
   }
 }

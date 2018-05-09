@@ -100,39 +100,14 @@ public class GotoTargetsArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    GotoTargetsArguments other = (GotoTargetsArguments) obj;
-    if (this.source == null) {
-      if (other.source != null)
-        return false;
-    } else if (!this.source.equals(other.source))
-      return false;
-    if (this.line == null) {
-      if (other.line != null)
-        return false;
-    } else if (!this.line.equals(other.line))
-      return false;
-    if (this.column == null) {
-      if (other.column != null)
-        return false;
-    } else if (!this.column.equals(other.column))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type GotoTargetsArguments is already defined in GotoTargetsArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.source== null) ? 0 : this.source.hashCode());
-    result = prime * result + ((this.line== null) ? 0 : this.line.hashCode());
-    result = prime * result + ((this.column== null) ? 0 : this.column.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type GotoTargetsArguments is already defined in GotoTargetsArguments.java.");
   }
 }

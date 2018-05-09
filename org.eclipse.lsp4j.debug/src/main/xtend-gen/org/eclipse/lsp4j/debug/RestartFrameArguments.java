@@ -49,27 +49,14 @@ public class RestartFrameArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    RestartFrameArguments other = (RestartFrameArguments) obj;
-    if (this.frameId == null) {
-      if (other.frameId != null)
-        return false;
-    } else if (!this.frameId.equals(other.frameId))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type RestartFrameArguments is already defined in RestartFrameArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.frameId== null) ? 0 : this.frameId.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type RestartFrameArguments is already defined in RestartFrameArguments.java.");
   }
 }

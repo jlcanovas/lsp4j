@@ -137,45 +137,14 @@ public class ProcessEventArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ProcessEventArguments other = (ProcessEventArguments) obj;
-    if (this.name == null) {
-      if (other.name != null)
-        return false;
-    } else if (!this.name.equals(other.name))
-      return false;
-    if (this.systemProcessId == null) {
-      if (other.systemProcessId != null)
-        return false;
-    } else if (!this.systemProcessId.equals(other.systemProcessId))
-      return false;
-    if (this.isLocalProcess == null) {
-      if (other.isLocalProcess != null)
-        return false;
-    } else if (!this.isLocalProcess.equals(other.isLocalProcess))
-      return false;
-    if (this.startMethod == null) {
-      if (other.startMethod != null)
-        return false;
-    } else if (!this.startMethod.equals(other.startMethod))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ProcessEventArguments is already defined in ProcessEventArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.name== null) ? 0 : this.name.hashCode());
-    result = prime * result + ((this.systemProcessId== null) ? 0 : this.systemProcessId.hashCode());
-    result = prime * result + ((this.isLocalProcess== null) ? 0 : this.isLocalProcess.hashCode());
-    result = prime * result + ((this.startMethod== null) ? 0 : this.startMethod.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ProcessEventArguments is already defined in ProcessEventArguments.java.");
   }
 }

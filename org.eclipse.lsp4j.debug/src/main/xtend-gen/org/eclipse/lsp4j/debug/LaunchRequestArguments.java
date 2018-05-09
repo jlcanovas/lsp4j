@@ -52,27 +52,14 @@ public class LaunchRequestArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    LaunchRequestArguments other = (LaunchRequestArguments) obj;
-    if (this.noDebug == null) {
-      if (other.noDebug != null)
-        return false;
-    } else if (!this.noDebug.equals(other.noDebug))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type LaunchRequestArguments is already defined in LaunchRequestArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.noDebug== null) ? 0 : this.noDebug.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type LaunchRequestArguments is already defined in LaunchRequestArguments.java.");
   }
 }

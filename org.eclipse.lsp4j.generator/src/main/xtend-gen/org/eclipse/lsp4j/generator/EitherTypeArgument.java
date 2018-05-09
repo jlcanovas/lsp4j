@@ -23,10 +23,8 @@ public class EitherTypeArgument {
   private final boolean right;
   
   public EitherTypeArgument(final TypeReference type, final EitherTypeArgument parent, final boolean right) {
-    super();
-    this.type = type;
-    this.parent = parent;
-    this.right = right;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type EitherTypeArgument is already defined in EitherTypeArgument.java.");
   }
   
   @Pure

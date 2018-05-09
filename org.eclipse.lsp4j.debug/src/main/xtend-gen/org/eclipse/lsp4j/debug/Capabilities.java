@@ -7,7 +7,6 @@
  */
 package org.eclipse.lsp4j.debug;
 
-import java.util.Arrays;
 import org.eclipse.lsp4j.debug.ChecksumAlgorithm;
 import org.eclipse.lsp4j.debug.ColumnDescriptor;
 import org.eclipse.lsp4j.debug.ExceptionBreakpointsFilter;
@@ -632,153 +631,14 @@ public class Capabilities {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Capabilities other = (Capabilities) obj;
-    if (this.supportsConfigurationDoneRequest == null) {
-      if (other.supportsConfigurationDoneRequest != null)
-        return false;
-    } else if (!this.supportsConfigurationDoneRequest.equals(other.supportsConfigurationDoneRequest))
-      return false;
-    if (this.supportsFunctionBreakpoints == null) {
-      if (other.supportsFunctionBreakpoints != null)
-        return false;
-    } else if (!this.supportsFunctionBreakpoints.equals(other.supportsFunctionBreakpoints))
-      return false;
-    if (this.supportsConditionalBreakpoints == null) {
-      if (other.supportsConditionalBreakpoints != null)
-        return false;
-    } else if (!this.supportsConditionalBreakpoints.equals(other.supportsConditionalBreakpoints))
-      return false;
-    if (this.supportsHitConditionalBreakpoints == null) {
-      if (other.supportsHitConditionalBreakpoints != null)
-        return false;
-    } else if (!this.supportsHitConditionalBreakpoints.equals(other.supportsHitConditionalBreakpoints))
-      return false;
-    if (this.supportsEvaluateForHovers == null) {
-      if (other.supportsEvaluateForHovers != null)
-        return false;
-    } else if (!this.supportsEvaluateForHovers.equals(other.supportsEvaluateForHovers))
-      return false;
-    if (this.exceptionBreakpointFilters == null) {
-      if (other.exceptionBreakpointFilters != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.exceptionBreakpointFilters, other.exceptionBreakpointFilters))
-      return false;
-    if (this.supportsStepBack == null) {
-      if (other.supportsStepBack != null)
-        return false;
-    } else if (!this.supportsStepBack.equals(other.supportsStepBack))
-      return false;
-    if (this.supportsSetVariable == null) {
-      if (other.supportsSetVariable != null)
-        return false;
-    } else if (!this.supportsSetVariable.equals(other.supportsSetVariable))
-      return false;
-    if (this.supportsRestartFrame == null) {
-      if (other.supportsRestartFrame != null)
-        return false;
-    } else if (!this.supportsRestartFrame.equals(other.supportsRestartFrame))
-      return false;
-    if (this.supportsGotoTargetsRequest == null) {
-      if (other.supportsGotoTargetsRequest != null)
-        return false;
-    } else if (!this.supportsGotoTargetsRequest.equals(other.supportsGotoTargetsRequest))
-      return false;
-    if (this.supportsStepInTargetsRequest == null) {
-      if (other.supportsStepInTargetsRequest != null)
-        return false;
-    } else if (!this.supportsStepInTargetsRequest.equals(other.supportsStepInTargetsRequest))
-      return false;
-    if (this.supportsCompletionsRequest == null) {
-      if (other.supportsCompletionsRequest != null)
-        return false;
-    } else if (!this.supportsCompletionsRequest.equals(other.supportsCompletionsRequest))
-      return false;
-    if (this.supportsModulesRequest == null) {
-      if (other.supportsModulesRequest != null)
-        return false;
-    } else if (!this.supportsModulesRequest.equals(other.supportsModulesRequest))
-      return false;
-    if (this.additionalModuleColumns == null) {
-      if (other.additionalModuleColumns != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.additionalModuleColumns, other.additionalModuleColumns))
-      return false;
-    if (this.supportedChecksumAlgorithms == null) {
-      if (other.supportedChecksumAlgorithms != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.supportedChecksumAlgorithms, other.supportedChecksumAlgorithms))
-      return false;
-    if (this.supportsRestartRequest == null) {
-      if (other.supportsRestartRequest != null)
-        return false;
-    } else if (!this.supportsRestartRequest.equals(other.supportsRestartRequest))
-      return false;
-    if (this.supportsExceptionOptions == null) {
-      if (other.supportsExceptionOptions != null)
-        return false;
-    } else if (!this.supportsExceptionOptions.equals(other.supportsExceptionOptions))
-      return false;
-    if (this.supportsValueFormattingOptions == null) {
-      if (other.supportsValueFormattingOptions != null)
-        return false;
-    } else if (!this.supportsValueFormattingOptions.equals(other.supportsValueFormattingOptions))
-      return false;
-    if (this.supportsExceptionInfoRequest == null) {
-      if (other.supportsExceptionInfoRequest != null)
-        return false;
-    } else if (!this.supportsExceptionInfoRequest.equals(other.supportsExceptionInfoRequest))
-      return false;
-    if (this.supportTerminateDebuggee == null) {
-      if (other.supportTerminateDebuggee != null)
-        return false;
-    } else if (!this.supportTerminateDebuggee.equals(other.supportTerminateDebuggee))
-      return false;
-    if (this.supportsDelayedStackTraceLoading == null) {
-      if (other.supportsDelayedStackTraceLoading != null)
-        return false;
-    } else if (!this.supportsDelayedStackTraceLoading.equals(other.supportsDelayedStackTraceLoading))
-      return false;
-    if (this.supportsLoadedSourcesRequest == null) {
-      if (other.supportsLoadedSourcesRequest != null)
-        return false;
-    } else if (!this.supportsLoadedSourcesRequest.equals(other.supportsLoadedSourcesRequest))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type Capabilities is already defined in Capabilities.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.supportsConfigurationDoneRequest== null) ? 0 : this.supportsConfigurationDoneRequest.hashCode());
-    result = prime * result + ((this.supportsFunctionBreakpoints== null) ? 0 : this.supportsFunctionBreakpoints.hashCode());
-    result = prime * result + ((this.supportsConditionalBreakpoints== null) ? 0 : this.supportsConditionalBreakpoints.hashCode());
-    result = prime * result + ((this.supportsHitConditionalBreakpoints== null) ? 0 : this.supportsHitConditionalBreakpoints.hashCode());
-    result = prime * result + ((this.supportsEvaluateForHovers== null) ? 0 : this.supportsEvaluateForHovers.hashCode());
-    result = prime * result + ((this.exceptionBreakpointFilters== null) ? 0 : Arrays.deepHashCode(this.exceptionBreakpointFilters));
-    result = prime * result + ((this.supportsStepBack== null) ? 0 : this.supportsStepBack.hashCode());
-    result = prime * result + ((this.supportsSetVariable== null) ? 0 : this.supportsSetVariable.hashCode());
-    result = prime * result + ((this.supportsRestartFrame== null) ? 0 : this.supportsRestartFrame.hashCode());
-    result = prime * result + ((this.supportsGotoTargetsRequest== null) ? 0 : this.supportsGotoTargetsRequest.hashCode());
-    result = prime * result + ((this.supportsStepInTargetsRequest== null) ? 0 : this.supportsStepInTargetsRequest.hashCode());
-    result = prime * result + ((this.supportsCompletionsRequest== null) ? 0 : this.supportsCompletionsRequest.hashCode());
-    result = prime * result + ((this.supportsModulesRequest== null) ? 0 : this.supportsModulesRequest.hashCode());
-    result = prime * result + ((this.additionalModuleColumns== null) ? 0 : Arrays.deepHashCode(this.additionalModuleColumns));
-    result = prime * result + ((this.supportedChecksumAlgorithms== null) ? 0 : Arrays.deepHashCode(this.supportedChecksumAlgorithms));
-    result = prime * result + ((this.supportsRestartRequest== null) ? 0 : this.supportsRestartRequest.hashCode());
-    result = prime * result + ((this.supportsExceptionOptions== null) ? 0 : this.supportsExceptionOptions.hashCode());
-    result = prime * result + ((this.supportsValueFormattingOptions== null) ? 0 : this.supportsValueFormattingOptions.hashCode());
-    result = prime * result + ((this.supportsExceptionInfoRequest== null) ? 0 : this.supportsExceptionInfoRequest.hashCode());
-    result = prime * result + ((this.supportTerminateDebuggee== null) ? 0 : this.supportTerminateDebuggee.hashCode());
-    result = prime * result + ((this.supportsDelayedStackTraceLoading== null) ? 0 : this.supportsDelayedStackTraceLoading.hashCode());
-    result = prime * result + ((this.supportsLoadedSourcesRequest== null) ? 0 : this.supportsLoadedSourcesRequest.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type Capabilities is already defined in Capabilities.java.");
   }
 }

@@ -172,51 +172,14 @@ public class SetVariableResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    SetVariableResponse other = (SetVariableResponse) obj;
-    if (this.value == null) {
-      if (other.value != null)
-        return false;
-    } else if (!this.value.equals(other.value))
-      return false;
-    if (this.type == null) {
-      if (other.type != null)
-        return false;
-    } else if (!this.type.equals(other.type))
-      return false;
-    if (this.variablesReference == null) {
-      if (other.variablesReference != null)
-        return false;
-    } else if (!this.variablesReference.equals(other.variablesReference))
-      return false;
-    if (this.namedVariables == null) {
-      if (other.namedVariables != null)
-        return false;
-    } else if (!this.namedVariables.equals(other.namedVariables))
-      return false;
-    if (this.indexedVariables == null) {
-      if (other.indexedVariables != null)
-        return false;
-    } else if (!this.indexedVariables.equals(other.indexedVariables))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SetVariableResponse is already defined in SetVariableResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.value== null) ? 0 : this.value.hashCode());
-    result = prime * result + ((this.type== null) ? 0 : this.type.hashCode());
-    result = prime * result + ((this.variablesReference== null) ? 0 : this.variablesReference.hashCode());
-    result = prime * result + ((this.namedVariables== null) ? 0 : this.namedVariables.hashCode());
-    result = prime * result + ((this.indexedVariables== null) ? 0 : this.indexedVariables.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SetVariableResponse is already defined in SetVariableResponse.java.");
   }
 }

@@ -7,7 +7,6 @@
  */
 package org.eclipse.lsp4j.debug;
 
-import java.util.Arrays;
 import org.eclipse.lsp4j.debug.Breakpoint;
 import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -62,27 +61,14 @@ public class SetBreakpointsResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    SetBreakpointsResponse other = (SetBreakpointsResponse) obj;
-    if (this.breakpoints == null) {
-      if (other.breakpoints != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.breakpoints, other.breakpoints))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SetBreakpointsResponse is already defined in SetBreakpointsResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.breakpoints== null) ? 0 : Arrays.deepHashCode(this.breakpoints));
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SetBreakpointsResponse is already defined in SetBreakpointsResponse.java.");
   }
 }

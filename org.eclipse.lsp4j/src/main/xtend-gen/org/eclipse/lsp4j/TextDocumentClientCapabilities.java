@@ -9,6 +9,7 @@ package org.eclipse.lsp4j;
 
 import org.eclipse.lsp4j.CodeActionCapabilities;
 import org.eclipse.lsp4j.CodeLensCapabilities;
+import org.eclipse.lsp4j.ColorProviderCapabilities;
 import org.eclipse.lsp4j.CompletionCapabilities;
 import org.eclipse.lsp4j.DefinitionCapabilities;
 import org.eclipse.lsp4j.DocumentHighlightCapabilities;
@@ -16,12 +17,15 @@ import org.eclipse.lsp4j.DocumentLinkCapabilities;
 import org.eclipse.lsp4j.DocumentSymbolCapabilities;
 import org.eclipse.lsp4j.FormattingCapabilities;
 import org.eclipse.lsp4j.HoverCapabilities;
+import org.eclipse.lsp4j.ImplementationCapabilities;
 import org.eclipse.lsp4j.OnTypeFormattingCapabilities;
+import org.eclipse.lsp4j.PublishDiagnosticsCapabilities;
 import org.eclipse.lsp4j.RangeFormattingCapabilities;
 import org.eclipse.lsp4j.ReferencesCapabilities;
 import org.eclipse.lsp4j.RenameCapabilities;
 import org.eclipse.lsp4j.SignatureHelpCapabilities;
 import org.eclipse.lsp4j.SynchronizationCapabilities;
+import org.eclipse.lsp4j.TypeDefinitionCapabilities;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
 
@@ -83,6 +87,20 @@ public class TextDocumentClientCapabilities {
   private DefinitionCapabilities definition;
   
   /**
+   * Capabilities specific to the `textDocument/typeDefinition`
+   * 
+   * Since 3.6.0
+   */
+  private TypeDefinitionCapabilities typeDefinition;
+  
+  /**
+   * Capabilities specific to the `textDocument/implementation`
+   * 
+   * Since 3.6.0
+   */
+  private ImplementationCapabilities implementation;
+  
+  /**
    * Capabilities specific to the `textDocument/codeAction`
    */
   private CodeActionCapabilities codeAction;
@@ -98,9 +116,22 @@ public class TextDocumentClientCapabilities {
   private DocumentLinkCapabilities documentLink;
   
   /**
+   * Capabilities specific to the `textDocument/documentColor` and the
+   * `textDocument/colorPresentation` request.
+   * 
+   * Since 3.6.0
+   */
+  private ColorProviderCapabilities colorProvider;
+  
+  /**
    * Capabilities specific to the `textDocument/rename`
    */
   private RenameCapabilities rename;
+  
+  /**
+   * Capabilities specific to `textDocument/publishDiagnostics`.
+   */
+  private PublishDiagnosticsCapabilities publishDiagnostics;
   
   @Pure
   public SynchronizationCapabilities getSynchronization() {
@@ -262,6 +293,44 @@ public class TextDocumentClientCapabilities {
   }
   
   /**
+   * Capabilities specific to the `textDocument/typeDefinition`
+   * 
+   * Since 3.6.0
+   */
+  @Pure
+  public TypeDefinitionCapabilities getTypeDefinition() {
+    return this.typeDefinition;
+  }
+  
+  /**
+   * Capabilities specific to the `textDocument/typeDefinition`
+   * 
+   * Since 3.6.0
+   */
+  public void setTypeDefinition(final TypeDefinitionCapabilities typeDefinition) {
+    this.typeDefinition = typeDefinition;
+  }
+  
+  /**
+   * Capabilities specific to the `textDocument/implementation`
+   * 
+   * Since 3.6.0
+   */
+  @Pure
+  public ImplementationCapabilities getImplementation() {
+    return this.implementation;
+  }
+  
+  /**
+   * Capabilities specific to the `textDocument/implementation`
+   * 
+   * Since 3.6.0
+   */
+  public void setImplementation(final ImplementationCapabilities implementation) {
+    this.implementation = implementation;
+  }
+  
+  /**
    * Capabilities specific to the `textDocument/codeAction`
    */
   @Pure
@@ -307,6 +376,27 @@ public class TextDocumentClientCapabilities {
   }
   
   /**
+   * Capabilities specific to the `textDocument/documentColor` and the
+   * `textDocument/colorPresentation` request.
+   * 
+   * Since 3.6.0
+   */
+  @Pure
+  public ColorProviderCapabilities getColorProvider() {
+    return this.colorProvider;
+  }
+  
+  /**
+   * Capabilities specific to the `textDocument/documentColor` and the
+   * `textDocument/colorPresentation` request.
+   * 
+   * Since 3.6.0
+   */
+  public void setColorProvider(final ColorProviderCapabilities colorProvider) {
+    this.colorProvider = colorProvider;
+  }
+  
+  /**
    * Capabilities specific to the `textDocument/rename`
    */
   @Pure
@@ -319,6 +409,21 @@ public class TextDocumentClientCapabilities {
    */
   public void setRename(final RenameCapabilities rename) {
     this.rename = rename;
+  }
+  
+  /**
+   * Capabilities specific to `textDocument/publishDiagnostics`.
+   */
+  @Pure
+  public PublishDiagnosticsCapabilities getPublishDiagnostics() {
+    return this.publishDiagnostics;
+  }
+  
+  /**
+   * Capabilities specific to `textDocument/publishDiagnostics`.
+   */
+  public void setPublishDiagnostics(final PublishDiagnosticsCapabilities publishDiagnostics) {
+    this.publishDiagnostics = publishDiagnostics;
   }
   
   @Override
@@ -336,121 +441,28 @@ public class TextDocumentClientCapabilities {
     b.add("rangeFormatting", this.rangeFormatting);
     b.add("onTypeFormatting", this.onTypeFormatting);
     b.add("definition", this.definition);
+    b.add("typeDefinition", this.typeDefinition);
+    b.add("implementation", this.implementation);
     b.add("codeAction", this.codeAction);
     b.add("codeLens", this.codeLens);
     b.add("documentLink", this.documentLink);
+    b.add("colorProvider", this.colorProvider);
     b.add("rename", this.rename);
+    b.add("publishDiagnostics", this.publishDiagnostics);
     return b.toString();
   }
   
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    TextDocumentClientCapabilities other = (TextDocumentClientCapabilities) obj;
-    if (this.synchronization == null) {
-      if (other.synchronization != null)
-        return false;
-    } else if (!this.synchronization.equals(other.synchronization))
-      return false;
-    if (this.completion == null) {
-      if (other.completion != null)
-        return false;
-    } else if (!this.completion.equals(other.completion))
-      return false;
-    if (this.hover == null) {
-      if (other.hover != null)
-        return false;
-    } else if (!this.hover.equals(other.hover))
-      return false;
-    if (this.signatureHelp == null) {
-      if (other.signatureHelp != null)
-        return false;
-    } else if (!this.signatureHelp.equals(other.signatureHelp))
-      return false;
-    if (this.references == null) {
-      if (other.references != null)
-        return false;
-    } else if (!this.references.equals(other.references))
-      return false;
-    if (this.documentHighlight == null) {
-      if (other.documentHighlight != null)
-        return false;
-    } else if (!this.documentHighlight.equals(other.documentHighlight))
-      return false;
-    if (this.documentSymbol == null) {
-      if (other.documentSymbol != null)
-        return false;
-    } else if (!this.documentSymbol.equals(other.documentSymbol))
-      return false;
-    if (this.formatting == null) {
-      if (other.formatting != null)
-        return false;
-    } else if (!this.formatting.equals(other.formatting))
-      return false;
-    if (this.rangeFormatting == null) {
-      if (other.rangeFormatting != null)
-        return false;
-    } else if (!this.rangeFormatting.equals(other.rangeFormatting))
-      return false;
-    if (this.onTypeFormatting == null) {
-      if (other.onTypeFormatting != null)
-        return false;
-    } else if (!this.onTypeFormatting.equals(other.onTypeFormatting))
-      return false;
-    if (this.definition == null) {
-      if (other.definition != null)
-        return false;
-    } else if (!this.definition.equals(other.definition))
-      return false;
-    if (this.codeAction == null) {
-      if (other.codeAction != null)
-        return false;
-    } else if (!this.codeAction.equals(other.codeAction))
-      return false;
-    if (this.codeLens == null) {
-      if (other.codeLens != null)
-        return false;
-    } else if (!this.codeLens.equals(other.codeLens))
-      return false;
-    if (this.documentLink == null) {
-      if (other.documentLink != null)
-        return false;
-    } else if (!this.documentLink.equals(other.documentLink))
-      return false;
-    if (this.rename == null) {
-      if (other.rename != null)
-        return false;
-    } else if (!this.rename.equals(other.rename))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TextDocumentClientCapabilities is already defined in TextDocumentClientCapabilities.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.synchronization== null) ? 0 : this.synchronization.hashCode());
-    result = prime * result + ((this.completion== null) ? 0 : this.completion.hashCode());
-    result = prime * result + ((this.hover== null) ? 0 : this.hover.hashCode());
-    result = prime * result + ((this.signatureHelp== null) ? 0 : this.signatureHelp.hashCode());
-    result = prime * result + ((this.references== null) ? 0 : this.references.hashCode());
-    result = prime * result + ((this.documentHighlight== null) ? 0 : this.documentHighlight.hashCode());
-    result = prime * result + ((this.documentSymbol== null) ? 0 : this.documentSymbol.hashCode());
-    result = prime * result + ((this.formatting== null) ? 0 : this.formatting.hashCode());
-    result = prime * result + ((this.rangeFormatting== null) ? 0 : this.rangeFormatting.hashCode());
-    result = prime * result + ((this.onTypeFormatting== null) ? 0 : this.onTypeFormatting.hashCode());
-    result = prime * result + ((this.definition== null) ? 0 : this.definition.hashCode());
-    result = prime * result + ((this.codeAction== null) ? 0 : this.codeAction.hashCode());
-    result = prime * result + ((this.codeLens== null) ? 0 : this.codeLens.hashCode());
-    result = prime * result + ((this.documentLink== null) ? 0 : this.documentLink.hashCode());
-    result = prime * result + ((this.rename== null) ? 0 : this.rename.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TextDocumentClientCapabilities is already defined in TextDocumentClientCapabilities.java.");
   }
 }

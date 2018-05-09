@@ -140,45 +140,14 @@ public class EvaluateArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    EvaluateArguments other = (EvaluateArguments) obj;
-    if (this.expression == null) {
-      if (other.expression != null)
-        return false;
-    } else if (!this.expression.equals(other.expression))
-      return false;
-    if (this.frameId == null) {
-      if (other.frameId != null)
-        return false;
-    } else if (!this.frameId.equals(other.frameId))
-      return false;
-    if (this.context == null) {
-      if (other.context != null)
-        return false;
-    } else if (!this.context.equals(other.context))
-      return false;
-    if (this.format == null) {
-      if (other.format != null)
-        return false;
-    } else if (!this.format.equals(other.format))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type EvaluateArguments is already defined in EvaluateArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.expression== null) ? 0 : this.expression.hashCode());
-    result = prime * result + ((this.frameId== null) ? 0 : this.frameId.hashCode());
-    result = prime * result + ((this.context== null) ? 0 : this.context.hashCode());
-    result = prime * result + ((this.format== null) ? 0 : this.format.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type EvaluateArguments is already defined in EvaluateArguments.java.");
   }
 }

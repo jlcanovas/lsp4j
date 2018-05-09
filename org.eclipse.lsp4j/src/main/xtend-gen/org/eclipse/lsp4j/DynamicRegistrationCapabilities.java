@@ -50,27 +50,14 @@ public class DynamicRegistrationCapabilities {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    DynamicRegistrationCapabilities other = (DynamicRegistrationCapabilities) obj;
-    if (this.dynamicRegistration == null) {
-      if (other.dynamicRegistration != null)
-        return false;
-    } else if (!this.dynamicRegistration.equals(other.dynamicRegistration))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type DynamicRegistrationCapabilities is already defined in DynamicRegistrationCapabilities.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.dynamicRegistration== null) ? 0 : this.dynamicRegistration.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type DynamicRegistrationCapabilities is already defined in DynamicRegistrationCapabilities.java.");
   }
 }

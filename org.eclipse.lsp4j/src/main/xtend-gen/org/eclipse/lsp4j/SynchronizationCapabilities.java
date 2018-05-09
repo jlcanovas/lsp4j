@@ -109,41 +109,14 @@ public class SynchronizationCapabilities extends DynamicRegistrationCapabilities
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    if (!super.equals(obj))
-      return false;
-    SynchronizationCapabilities other = (SynchronizationCapabilities) obj;
-    if (this.willSave == null) {
-      if (other.willSave != null)
-        return false;
-    } else if (!this.willSave.equals(other.willSave))
-      return false;
-    if (this.willSaveWaitUntil == null) {
-      if (other.willSaveWaitUntil != null)
-        return false;
-    } else if (!this.willSaveWaitUntil.equals(other.willSaveWaitUntil))
-      return false;
-    if (this.didSave == null) {
-      if (other.didSave != null)
-        return false;
-    } else if (!this.didSave.equals(other.didSave))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SynchronizationCapabilities is already defined in SynchronizationCapabilities.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = super.hashCode();
-    result = prime * result + ((this.willSave== null) ? 0 : this.willSave.hashCode());
-    result = prime * result + ((this.willSaveWaitUntil== null) ? 0 : this.willSaveWaitUntil.hashCode());
-    result = prime * result + ((this.didSave== null) ? 0 : this.didSave.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SynchronizationCapabilities is already defined in SynchronizationCapabilities.java.");
   }
 }

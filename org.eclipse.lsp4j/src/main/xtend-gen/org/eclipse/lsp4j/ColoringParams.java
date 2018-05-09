@@ -7,6 +7,7 @@
  */
 package org.eclipse.lsp4j;
 
+import com.google.common.annotations.Beta;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.lsp4j.ColoringInformation;
@@ -18,6 +19,7 @@ import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
  * Representation of a computed mapping from ranges to the appropriate
  * highlighting style.
  */
+@Beta
 @SuppressWarnings("all")
 public class ColoringParams {
   /**
@@ -86,33 +88,14 @@ public class ColoringParams {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ColoringParams other = (ColoringParams) obj;
-    if (this.uri == null) {
-      if (other.uri != null)
-        return false;
-    } else if (!this.uri.equals(other.uri))
-      return false;
-    if (this.infos == null) {
-      if (other.infos != null)
-        return false;
-    } else if (!this.infos.equals(other.infos))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ColoringParams is already defined in ColoringParams.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.uri== null) ? 0 : this.uri.hashCode());
-    result = prime * result + ((this.infos== null) ? 0 : this.infos.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ColoringParams is already defined in ColoringParams.java.");
   }
 }

@@ -7,7 +7,6 @@
  */
 package org.eclipse.lsp4j.debug;
 
-import java.util.Arrays;
 import org.eclipse.lsp4j.debug.CompletionItem;
 import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -51,27 +50,14 @@ public class CompletionsResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    CompletionsResponse other = (CompletionsResponse) obj;
-    if (this.targets == null) {
-      if (other.targets != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.targets, other.targets))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CompletionsResponse is already defined in CompletionsResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.targets== null) ? 0 : Arrays.deepHashCode(this.targets));
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CompletionsResponse is already defined in CompletionsResponse.java.");
   }
 }

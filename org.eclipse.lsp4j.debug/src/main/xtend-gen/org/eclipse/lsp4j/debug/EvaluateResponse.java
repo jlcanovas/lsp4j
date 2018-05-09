@@ -196,57 +196,14 @@ public class EvaluateResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    EvaluateResponse other = (EvaluateResponse) obj;
-    if (this.result == null) {
-      if (other.result != null)
-        return false;
-    } else if (!this.result.equals(other.result))
-      return false;
-    if (this.type == null) {
-      if (other.type != null)
-        return false;
-    } else if (!this.type.equals(other.type))
-      return false;
-    if (this.presentationHint == null) {
-      if (other.presentationHint != null)
-        return false;
-    } else if (!this.presentationHint.equals(other.presentationHint))
-      return false;
-    if (this.variablesReference == null) {
-      if (other.variablesReference != null)
-        return false;
-    } else if (!this.variablesReference.equals(other.variablesReference))
-      return false;
-    if (this.namedVariables == null) {
-      if (other.namedVariables != null)
-        return false;
-    } else if (!this.namedVariables.equals(other.namedVariables))
-      return false;
-    if (this.indexedVariables == null) {
-      if (other.indexedVariables != null)
-        return false;
-    } else if (!this.indexedVariables.equals(other.indexedVariables))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type EvaluateResponse is already defined in EvaluateResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.result== null) ? 0 : this.result.hashCode());
-    result = prime * result + ((this.type== null) ? 0 : this.type.hashCode());
-    result = prime * result + ((this.presentationHint== null) ? 0 : this.presentationHint.hashCode());
-    result = prime * result + ((this.variablesReference== null) ? 0 : this.variablesReference.hashCode());
-    result = prime * result + ((this.namedVariables== null) ? 0 : this.namedVariables.hashCode());
-    result = prime * result + ((this.indexedVariables== null) ? 0 : this.indexedVariables.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type EvaluateResponse is already defined in EvaluateResponse.java.");
   }
 }

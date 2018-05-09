@@ -11,6 +11,9 @@ import org.eclipse.lsp4j.DynamicRegistrationCapabilities;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
 
+/**
+ * Capabilities specific to the `textDocument/onTypeFormatting`
+ */
 @SuppressWarnings("all")
 public class OnTypeFormattingCapabilities extends DynamicRegistrationCapabilities {
   public OnTypeFormattingCapabilities() {
@@ -31,21 +34,14 @@ public class OnTypeFormattingCapabilities extends DynamicRegistrationCapabilitie
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    if (!super.equals(obj))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type OnTypeFormattingCapabilities is already defined in OnTypeFormattingCapabilities.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    int result = super.hashCode();
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type OnTypeFormattingCapabilities is already defined in OnTypeFormattingCapabilities.java.");
   }
 }

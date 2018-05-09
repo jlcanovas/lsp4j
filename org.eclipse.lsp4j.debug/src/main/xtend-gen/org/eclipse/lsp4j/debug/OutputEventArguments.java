@@ -226,63 +226,14 @@ public class OutputEventArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    OutputEventArguments other = (OutputEventArguments) obj;
-    if (this.category == null) {
-      if (other.category != null)
-        return false;
-    } else if (!this.category.equals(other.category))
-      return false;
-    if (this.output == null) {
-      if (other.output != null)
-        return false;
-    } else if (!this.output.equals(other.output))
-      return false;
-    if (this.variablesReference == null) {
-      if (other.variablesReference != null)
-        return false;
-    } else if (!this.variablesReference.equals(other.variablesReference))
-      return false;
-    if (this.source == null) {
-      if (other.source != null)
-        return false;
-    } else if (!this.source.equals(other.source))
-      return false;
-    if (this.line == null) {
-      if (other.line != null)
-        return false;
-    } else if (!this.line.equals(other.line))
-      return false;
-    if (this.column == null) {
-      if (other.column != null)
-        return false;
-    } else if (!this.column.equals(other.column))
-      return false;
-    if (this.data == null) {
-      if (other.data != null)
-        return false;
-    } else if (!this.data.equals(other.data))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type OutputEventArguments is already defined in OutputEventArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.category== null) ? 0 : this.category.hashCode());
-    result = prime * result + ((this.output== null) ? 0 : this.output.hashCode());
-    result = prime * result + ((this.variablesReference== null) ? 0 : this.variablesReference.hashCode());
-    result = prime * result + ((this.source== null) ? 0 : this.source.hashCode());
-    result = prime * result + ((this.line== null) ? 0 : this.line.hashCode());
-    result = prime * result + ((this.column== null) ? 0 : this.column.hashCode());
-    result = prime * result + ((this.data== null) ? 0 : this.data.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type OutputEventArguments is already defined in OutputEventArguments.java.");
   }
 }

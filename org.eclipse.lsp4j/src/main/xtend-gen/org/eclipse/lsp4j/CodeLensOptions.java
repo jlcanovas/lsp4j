@@ -53,24 +53,14 @@ public class CodeLensOptions {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    CodeLensOptions other = (CodeLensOptions) obj;
-    if (other.resolveProvider != this.resolveProvider)
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CodeLensOptions is already defined in CodeLensOptions.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + (this.resolveProvider ? 1231 : 1237);
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CodeLensOptions is already defined in CodeLensOptions.java.");
   }
 }

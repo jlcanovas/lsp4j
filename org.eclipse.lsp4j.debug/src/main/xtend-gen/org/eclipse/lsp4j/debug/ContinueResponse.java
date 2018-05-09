@@ -55,27 +55,14 @@ public class ContinueResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ContinueResponse other = (ContinueResponse) obj;
-    if (this.allThreadsContinued == null) {
-      if (other.allThreadsContinued != null)
-        return false;
-    } else if (!this.allThreadsContinued.equals(other.allThreadsContinued))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ContinueResponse is already defined in ContinueResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.allThreadsContinued== null) ? 0 : this.allThreadsContinued.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ContinueResponse is already defined in ContinueResponse.java.");
   }
 }

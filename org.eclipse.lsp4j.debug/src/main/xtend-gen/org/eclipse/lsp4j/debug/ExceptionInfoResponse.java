@@ -128,45 +128,14 @@ public class ExceptionInfoResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ExceptionInfoResponse other = (ExceptionInfoResponse) obj;
-    if (this.exceptionId == null) {
-      if (other.exceptionId != null)
-        return false;
-    } else if (!this.exceptionId.equals(other.exceptionId))
-      return false;
-    if (this.description == null) {
-      if (other.description != null)
-        return false;
-    } else if (!this.description.equals(other.description))
-      return false;
-    if (this.breakMode == null) {
-      if (other.breakMode != null)
-        return false;
-    } else if (!this.breakMode.equals(other.breakMode))
-      return false;
-    if (this.details == null) {
-      if (other.details != null)
-        return false;
-    } else if (!this.details.equals(other.details))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ExceptionInfoResponse is already defined in ExceptionInfoResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.exceptionId== null) ? 0 : this.exceptionId.hashCode());
-    result = prime * result + ((this.description== null) ? 0 : this.description.hashCode());
-    result = prime * result + ((this.breakMode== null) ? 0 : this.breakMode.hashCode());
-    result = prime * result + ((this.details== null) ? 0 : this.details.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ExceptionInfoResponse is already defined in ExceptionInfoResponse.java.");
   }
 }

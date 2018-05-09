@@ -7,7 +7,6 @@
  */
 package org.eclipse.lsp4j.debug;
 
-import java.util.Arrays;
 import org.eclipse.lsp4j.debug.StackFrame;
 import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -84,33 +83,14 @@ public class StackTraceResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    StackTraceResponse other = (StackTraceResponse) obj;
-    if (this.stackFrames == null) {
-      if (other.stackFrames != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.stackFrames, other.stackFrames))
-      return false;
-    if (this.totalFrames == null) {
-      if (other.totalFrames != null)
-        return false;
-    } else if (!this.totalFrames.equals(other.totalFrames))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type StackTraceResponse is already defined in StackTraceResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.stackFrames== null) ? 0 : Arrays.deepHashCode(this.stackFrames));
-    result = prime * result + ((this.totalFrames== null) ? 0 : this.totalFrames.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type StackTraceResponse is already defined in StackTraceResponse.java.");
   }
 }

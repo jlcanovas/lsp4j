@@ -76,33 +76,14 @@ public class StepInArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    StepInArguments other = (StepInArguments) obj;
-    if (this.threadId == null) {
-      if (other.threadId != null)
-        return false;
-    } else if (!this.threadId.equals(other.threadId))
-      return false;
-    if (this.targetId == null) {
-      if (other.targetId != null)
-        return false;
-    } else if (!this.targetId.equals(other.targetId))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type StepInArguments is already defined in StepInArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.threadId== null) ? 0 : this.threadId.hashCode());
-    result = prime * result + ((this.targetId== null) ? 0 : this.targetId.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type StepInArguments is already defined in StepInArguments.java.");
   }
 }

@@ -7,7 +7,6 @@
  */
 package org.eclipse.lsp4j.debug;
 
-import java.util.Arrays;
 import org.eclipse.lsp4j.debug.ExceptionOptions;
 import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -78,33 +77,14 @@ public class SetExceptionBreakpointsArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    SetExceptionBreakpointsArguments other = (SetExceptionBreakpointsArguments) obj;
-    if (this.filters == null) {
-      if (other.filters != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.filters, other.filters))
-      return false;
-    if (this.exceptionOptions == null) {
-      if (other.exceptionOptions != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.exceptionOptions, other.exceptionOptions))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SetExceptionBreakpointsArguments is already defined in SetExceptionBreakpointsArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.filters== null) ? 0 : Arrays.deepHashCode(this.filters));
-    result = prime * result + ((this.exceptionOptions== null) ? 0 : Arrays.deepHashCode(this.exceptionOptions));
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SetExceptionBreakpointsArguments is already defined in SetExceptionBreakpointsArguments.java.");
   }
 }

@@ -67,27 +67,14 @@ public class DisconnectArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    DisconnectArguments other = (DisconnectArguments) obj;
-    if (this.terminateDebuggee == null) {
-      if (other.terminateDebuggee != null)
-        return false;
-    } else if (!this.terminateDebuggee.equals(other.terminateDebuggee))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type DisconnectArguments is already defined in DisconnectArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.terminateDebuggee== null) ? 0 : this.terminateDebuggee.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type DisconnectArguments is already defined in DisconnectArguments.java.");
   }
 }

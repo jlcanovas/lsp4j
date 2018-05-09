@@ -101,39 +101,14 @@ public class ExceptionBreakpointsFilter {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ExceptionBreakpointsFilter other = (ExceptionBreakpointsFilter) obj;
-    if (this.filter == null) {
-      if (other.filter != null)
-        return false;
-    } else if (!this.filter.equals(other.filter))
-      return false;
-    if (this.label == null) {
-      if (other.label != null)
-        return false;
-    } else if (!this.label.equals(other.label))
-      return false;
-    if (this.default_ == null) {
-      if (other.default_ != null)
-        return false;
-    } else if (!this.default_.equals(other.default_))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ExceptionBreakpointsFilter is already defined in ExceptionBreakpointsFilter.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.filter== null) ? 0 : this.filter.hashCode());
-    result = prime * result + ((this.label== null) ? 0 : this.label.hashCode());
-    result = prime * result + ((this.default_== null) ? 0 : this.default_.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ExceptionBreakpointsFilter is already defined in ExceptionBreakpointsFilter.java.");
   }
 }

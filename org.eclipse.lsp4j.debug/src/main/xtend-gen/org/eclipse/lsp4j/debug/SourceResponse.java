@@ -76,33 +76,14 @@ public class SourceResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    SourceResponse other = (SourceResponse) obj;
-    if (this.content == null) {
-      if (other.content != null)
-        return false;
-    } else if (!this.content.equals(other.content))
-      return false;
-    if (this.mimeType == null) {
-      if (other.mimeType != null)
-        return false;
-    } else if (!this.mimeType.equals(other.mimeType))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SourceResponse is already defined in SourceResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.content== null) ? 0 : this.content.hashCode());
-    result = prime * result + ((this.mimeType== null) ? 0 : this.mimeType.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SourceResponse is already defined in SourceResponse.java.");
   }
 }

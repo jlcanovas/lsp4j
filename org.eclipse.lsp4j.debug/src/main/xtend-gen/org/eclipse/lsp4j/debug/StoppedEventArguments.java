@@ -195,51 +195,14 @@ public class StoppedEventArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    StoppedEventArguments other = (StoppedEventArguments) obj;
-    if (this.reason == null) {
-      if (other.reason != null)
-        return false;
-    } else if (!this.reason.equals(other.reason))
-      return false;
-    if (this.description == null) {
-      if (other.description != null)
-        return false;
-    } else if (!this.description.equals(other.description))
-      return false;
-    if (this.threadId == null) {
-      if (other.threadId != null)
-        return false;
-    } else if (!this.threadId.equals(other.threadId))
-      return false;
-    if (this.text == null) {
-      if (other.text != null)
-        return false;
-    } else if (!this.text.equals(other.text))
-      return false;
-    if (this.allThreadsStopped == null) {
-      if (other.allThreadsStopped != null)
-        return false;
-    } else if (!this.allThreadsStopped.equals(other.allThreadsStopped))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type StoppedEventArguments is already defined in StoppedEventArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.reason== null) ? 0 : this.reason.hashCode());
-    result = prime * result + ((this.description== null) ? 0 : this.description.hashCode());
-    result = prime * result + ((this.threadId== null) ? 0 : this.threadId.hashCode());
-    result = prime * result + ((this.text== null) ? 0 : this.text.hashCode());
-    result = prime * result + ((this.allThreadsStopped== null) ? 0 : this.allThreadsStopped.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type StoppedEventArguments is already defined in StoppedEventArguments.java.");
   }
 }

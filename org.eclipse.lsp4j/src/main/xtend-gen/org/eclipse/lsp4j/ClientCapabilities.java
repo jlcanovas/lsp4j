@@ -112,39 +112,14 @@ public class ClientCapabilities {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ClientCapabilities other = (ClientCapabilities) obj;
-    if (this.workspace == null) {
-      if (other.workspace != null)
-        return false;
-    } else if (!this.workspace.equals(other.workspace))
-      return false;
-    if (this.textDocument == null) {
-      if (other.textDocument != null)
-        return false;
-    } else if (!this.textDocument.equals(other.textDocument))
-      return false;
-    if (this.experimental == null) {
-      if (other.experimental != null)
-        return false;
-    } else if (!this.experimental.equals(other.experimental))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ClientCapabilities is already defined in ClientCapabilities.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.workspace== null) ? 0 : this.workspace.hashCode());
-    result = prime * result + ((this.textDocument== null) ? 0 : this.textDocument.hashCode());
-    result = prime * result + ((this.experimental== null) ? 0 : this.experimental.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ClientCapabilities is already defined in ClientCapabilities.java.");
   }
 }

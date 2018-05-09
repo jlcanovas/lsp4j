@@ -66,27 +66,14 @@ public class TerminatedEventArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    TerminatedEventArguments other = (TerminatedEventArguments) obj;
-    if (this.restart == null) {
-      if (other.restart != null)
-        return false;
-    } else if (!this.restart.equals(other.restart))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TerminatedEventArguments is already defined in TerminatedEventArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.restart== null) ? 0 : this.restart.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type TerminatedEventArguments is already defined in TerminatedEventArguments.java.");
   }
 }

@@ -8,10 +8,14 @@
 package org.eclipse.lsp4j;
 
 import org.eclipse.lsp4j.CompletionItemCapabilities;
+import org.eclipse.lsp4j.CompletionItemKindCapabilities;
 import org.eclipse.lsp4j.DynamicRegistrationCapabilities;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
 
+/**
+ * Capabilities specific to the `textDocument/completion`
+ */
 @SuppressWarnings("all")
 public class CompletionCapabilities extends DynamicRegistrationCapabilities {
   /**
@@ -20,6 +24,18 @@ public class CompletionCapabilities extends DynamicRegistrationCapabilities {
    */
   private CompletionItemCapabilities completionItem;
   
+  /**
+   * The client supports the following `CompletionItemKind` specific
+   * capabilities.
+   */
+  private CompletionItemKindCapabilities completionItemKind;
+  
+  /**
+   * The client supports sending additional context information for a
+   * `textDocument/completion` request.
+   */
+  private Boolean contextSupport;
+  
   public CompletionCapabilities() {
   }
   
@@ -27,9 +43,12 @@ public class CompletionCapabilities extends DynamicRegistrationCapabilities {
     this.completionItem = completionItem;
   }
   
-  public CompletionCapabilities(final CompletionItemCapabilities completionItem, final Boolean dynamicRegistration) {
-    super(dynamicRegistration);
-    this.completionItem = completionItem;
+  public CompletionCapabilities(final CompletionItemKindCapabilities completionItemKind) {
+    this.completionItemKind = completionItemKind;
+  }
+  
+  public CompletionCapabilities(final Boolean contextSupport) {
+    this.contextSupport = contextSupport;
   }
   
   /**
@@ -49,11 +68,47 @@ public class CompletionCapabilities extends DynamicRegistrationCapabilities {
     this.completionItem = completionItem;
   }
   
+  /**
+   * The client supports the following `CompletionItemKind` specific
+   * capabilities.
+   */
+  @Pure
+  public CompletionItemKindCapabilities getCompletionItemKind() {
+    return this.completionItemKind;
+  }
+  
+  /**
+   * The client supports the following `CompletionItemKind` specific
+   * capabilities.
+   */
+  public void setCompletionItemKind(final CompletionItemKindCapabilities completionItemKind) {
+    this.completionItemKind = completionItemKind;
+  }
+  
+  /**
+   * The client supports sending additional context information for a
+   * `textDocument/completion` request.
+   */
+  @Pure
+  public Boolean getContextSupport() {
+    return this.contextSupport;
+  }
+  
+  /**
+   * The client supports sending additional context information for a
+   * `textDocument/completion` request.
+   */
+  public void setContextSupport(final Boolean contextSupport) {
+    this.contextSupport = contextSupport;
+  }
+  
   @Override
   @Pure
   public String toString() {
     ToStringBuilder b = new ToStringBuilder(this);
     b.add("completionItem", this.completionItem);
+    b.add("completionItemKind", this.completionItemKind);
+    b.add("contextSupport", this.contextSupport);
     b.add("dynamicRegistration", getDynamicRegistration());
     return b.toString();
   }
@@ -61,29 +116,14 @@ public class CompletionCapabilities extends DynamicRegistrationCapabilities {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    if (!super.equals(obj))
-      return false;
-    CompletionCapabilities other = (CompletionCapabilities) obj;
-    if (this.completionItem == null) {
-      if (other.completionItem != null)
-        return false;
-    } else if (!this.completionItem.equals(other.completionItem))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CompletionCapabilities is already defined in CompletionCapabilities.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = super.hashCode();
-    result = prime * result + ((this.completionItem== null) ? 0 : this.completionItem.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CompletionCapabilities is already defined in CompletionCapabilities.java.");
   }
 }

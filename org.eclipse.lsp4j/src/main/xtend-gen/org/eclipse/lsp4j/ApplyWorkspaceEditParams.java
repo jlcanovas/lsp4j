@@ -8,70 +8,36 @@
 package org.eclipse.lsp4j;
 
 import org.eclipse.lsp4j.WorkspaceEdit;
-import org.eclipse.xtext.xbase.lib.Pure;
-import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
+import org.eclipse.lsp4j.generator.JsonRpcData;
+import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
 
-@SuppressWarnings("all")
+/**
+ * The workspace/applyEdit request is sent from the server to the client to modify resource on the client side.
+ */
+/* @JsonRpcData */@SuppressWarnings("all")
 public class ApplyWorkspaceEditParams {
   /**
    * The edits to apply.
    */
+  @NonNull
   private WorkspaceEdit edit;
+  
+  /**
+   * An optional label of the workspace edit. This label is
+   * presented in the user interface for example on an undo
+   * stack to undo the workspace edit.
+   */
+  private String label;
   
   public ApplyWorkspaceEditParams() {
   }
   
-  public ApplyWorkspaceEditParams(final WorkspaceEdit edit) {
+  public ApplyWorkspaceEditParams(@NonNull final WorkspaceEdit edit) {
     this.edit = edit;
   }
   
-  /**
-   * The edits to apply.
-   */
-  @Pure
-  public WorkspaceEdit getEdit() {
-    return this.edit;
-  }
-  
-  /**
-   * The edits to apply.
-   */
-  public void setEdit(final WorkspaceEdit edit) {
+  public ApplyWorkspaceEditParams(@NonNull final WorkspaceEdit edit, final String label) {
     this.edit = edit;
-  }
-  
-  @Override
-  @Pure
-  public String toString() {
-    ToStringBuilder b = new ToStringBuilder(this);
-    b.add("edit", this.edit);
-    return b.toString();
-  }
-  
-  @Override
-  @Pure
-  public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ApplyWorkspaceEditParams other = (ApplyWorkspaceEditParams) obj;
-    if (this.edit == null) {
-      if (other.edit != null)
-        return false;
-    } else if (!this.edit.equals(other.edit))
-      return false;
-    return true;
-  }
-  
-  @Override
-  @Pure
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.edit== null) ? 0 : this.edit.hashCode());
-    return result;
+    this.label = label;
   }
 }

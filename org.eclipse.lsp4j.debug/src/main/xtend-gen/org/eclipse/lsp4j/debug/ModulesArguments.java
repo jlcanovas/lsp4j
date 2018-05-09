@@ -79,33 +79,14 @@ public class ModulesArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ModulesArguments other = (ModulesArguments) obj;
-    if (this.startModule == null) {
-      if (other.startModule != null)
-        return false;
-    } else if (!this.startModule.equals(other.startModule))
-      return false;
-    if (this.moduleCount == null) {
-      if (other.moduleCount != null)
-        return false;
-    } else if (!this.moduleCount.equals(other.moduleCount))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ModulesArguments is already defined in ModulesArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.startModule== null) ? 0 : this.startModule.hashCode());
-    result = prime * result + ((this.moduleCount== null) ? 0 : this.moduleCount.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ModulesArguments is already defined in ModulesArguments.java.");
   }
 }

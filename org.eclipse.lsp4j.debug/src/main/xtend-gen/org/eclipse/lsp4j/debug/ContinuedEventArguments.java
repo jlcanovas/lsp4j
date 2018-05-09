@@ -83,33 +83,14 @@ public class ContinuedEventArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ContinuedEventArguments other = (ContinuedEventArguments) obj;
-    if (this.threadId == null) {
-      if (other.threadId != null)
-        return false;
-    } else if (!this.threadId.equals(other.threadId))
-      return false;
-    if (this.allThreadsContinued == null) {
-      if (other.allThreadsContinued != null)
-        return false;
-    } else if (!this.allThreadsContinued.equals(other.allThreadsContinued))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ContinuedEventArguments is already defined in ContinuedEventArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.threadId== null) ? 0 : this.threadId.hashCode());
-    result = prime * result + ((this.allThreadsContinued== null) ? 0 : this.allThreadsContinued.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ContinuedEventArguments is already defined in ContinuedEventArguments.java.");
   }
 }

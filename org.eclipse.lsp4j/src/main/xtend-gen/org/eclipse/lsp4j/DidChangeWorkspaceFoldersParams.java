@@ -7,14 +7,18 @@
  */
 package org.eclipse.lsp4j;
 
-import com.google.common.annotations.Beta;
 import org.eclipse.lsp4j.WorkspaceFoldersChangeEvent;
+import org.eclipse.lsp4j.generator.JsonRpcData;
 import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
-import org.eclipse.xtext.xbase.lib.Pure;
-import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
 
-@Beta
-@SuppressWarnings("all")
+/**
+ * The workspace/didChangeWorkspaceFolders notification is sent from the client to the server to
+ * inform the server about workspace folder configuration changes. The notification is sent by
+ * default if both ServerCapabilities/workspace/workspaceFolders and
+ * ClientCapabilities/workspace/workspaceFolders are true; or if the server has registered to
+ * receive this notification it first.
+ */
+/* @JsonRpcData */@SuppressWarnings("all")
 public class DidChangeWorkspaceFoldersParams {
   /**
    * The actual workspace folder change event.
@@ -22,54 +26,10 @@ public class DidChangeWorkspaceFoldersParams {
   @NonNull
   private WorkspaceFoldersChangeEvent event;
   
-  /**
-   * The actual workspace folder change event.
-   */
-  @Pure
-  @NonNull
-  public WorkspaceFoldersChangeEvent getEvent() {
-    return this.event;
+  public DidChangeWorkspaceFoldersParams() {
   }
   
-  /**
-   * The actual workspace folder change event.
-   */
-  public void setEvent(@NonNull final WorkspaceFoldersChangeEvent event) {
+  public DidChangeWorkspaceFoldersParams(@NonNull final WorkspaceFoldersChangeEvent event) {
     this.event = event;
-  }
-  
-  @Override
-  @Pure
-  public String toString() {
-    ToStringBuilder b = new ToStringBuilder(this);
-    b.add("event", this.event);
-    return b.toString();
-  }
-  
-  @Override
-  @Pure
-  public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    DidChangeWorkspaceFoldersParams other = (DidChangeWorkspaceFoldersParams) obj;
-    if (this.event == null) {
-      if (other.event != null)
-        return false;
-    } else if (!this.event.equals(other.event))
-      return false;
-    return true;
-  }
-  
-  @Override
-  @Pure
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.event== null) ? 0 : this.event.hashCode());
-    return result;
   }
 }

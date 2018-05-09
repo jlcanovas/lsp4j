@@ -113,39 +113,14 @@ public class CodeLens {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    CodeLens other = (CodeLens) obj;
-    if (this.range == null) {
-      if (other.range != null)
-        return false;
-    } else if (!this.range.equals(other.range))
-      return false;
-    if (this.command == null) {
-      if (other.command != null)
-        return false;
-    } else if (!this.command.equals(other.command))
-      return false;
-    if (this.data == null) {
-      if (other.data != null)
-        return false;
-    } else if (!this.data.equals(other.data))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CodeLens is already defined in CodeLens.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.range== null) ? 0 : this.range.hashCode());
-    result = prime * result + ((this.command== null) ? 0 : this.command.hashCode());
-    result = prime * result + ((this.data== null) ? 0 : this.data.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CodeLens is already defined in CodeLens.java.");
   }
 }

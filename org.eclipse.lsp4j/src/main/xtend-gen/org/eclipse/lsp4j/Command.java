@@ -108,39 +108,14 @@ public class Command {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Command other = (Command) obj;
-    if (this.title == null) {
-      if (other.title != null)
-        return false;
-    } else if (!this.title.equals(other.title))
-      return false;
-    if (this.command == null) {
-      if (other.command != null)
-        return false;
-    } else if (!this.command.equals(other.command))
-      return false;
-    if (this.arguments == null) {
-      if (other.arguments != null)
-        return false;
-    } else if (!this.arguments.equals(other.arguments))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type Command is already defined in Command.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.title== null) ? 0 : this.title.hashCode());
-    result = prime * result + ((this.command== null) ? 0 : this.command.hashCode());
-    result = prime * result + ((this.arguments== null) ? 0 : this.arguments.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type Command is already defined in Command.java.");
   }
 }

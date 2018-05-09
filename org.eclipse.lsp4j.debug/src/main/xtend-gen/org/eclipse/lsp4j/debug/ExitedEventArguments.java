@@ -51,27 +51,14 @@ public class ExitedEventArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    ExitedEventArguments other = (ExitedEventArguments) obj;
-    if (this.exitCode == null) {
-      if (other.exitCode != null)
-        return false;
-    } else if (!this.exitCode.equals(other.exitCode))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ExitedEventArguments is already defined in ExitedEventArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.exitCode== null) ? 0 : this.exitCode.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ExitedEventArguments is already defined in ExitedEventArguments.java.");
   }
 }

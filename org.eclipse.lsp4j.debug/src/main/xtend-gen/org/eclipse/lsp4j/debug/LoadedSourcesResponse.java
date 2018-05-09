@@ -7,7 +7,6 @@
  */
 package org.eclipse.lsp4j.debug;
 
-import java.util.Arrays;
 import org.eclipse.lsp4j.debug.Source;
 import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -51,27 +50,14 @@ public class LoadedSourcesResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    LoadedSourcesResponse other = (LoadedSourcesResponse) obj;
-    if (this.sources == null) {
-      if (other.sources != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.sources, other.sources))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type LoadedSourcesResponse is already defined in LoadedSourcesResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.sources== null) ? 0 : Arrays.deepHashCode(this.sources));
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type LoadedSourcesResponse is already defined in LoadedSourcesResponse.java.");
   }
 }

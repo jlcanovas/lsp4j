@@ -27,19 +27,14 @@ public class ConfigurationDoneArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ConfigurationDoneArguments is already defined in ConfigurationDoneArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    int result = 1;
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type ConfigurationDoneArguments is already defined in ConfigurationDoneArguments.java.");
   }
 }

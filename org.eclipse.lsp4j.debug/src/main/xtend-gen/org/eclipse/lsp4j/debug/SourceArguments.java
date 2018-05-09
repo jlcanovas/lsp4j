@@ -80,33 +80,14 @@ public class SourceArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    SourceArguments other = (SourceArguments) obj;
-    if (this.source == null) {
-      if (other.source != null)
-        return false;
-    } else if (!this.source.equals(other.source))
-      return false;
-    if (this.sourceReference == null) {
-      if (other.sourceReference != null)
-        return false;
-    } else if (!this.sourceReference.equals(other.sourceReference))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SourceArguments is already defined in SourceArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.source== null) ? 0 : this.source.hashCode());
-    result = prime * result + ((this.sourceReference== null) ? 0 : this.sourceReference.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SourceArguments is already defined in SourceArguments.java.");
   }
 }

@@ -159,51 +159,14 @@ public class VariablesArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    VariablesArguments other = (VariablesArguments) obj;
-    if (this.variablesReference == null) {
-      if (other.variablesReference != null)
-        return false;
-    } else if (!this.variablesReference.equals(other.variablesReference))
-      return false;
-    if (this.filter == null) {
-      if (other.filter != null)
-        return false;
-    } else if (!this.filter.equals(other.filter))
-      return false;
-    if (this.start == null) {
-      if (other.start != null)
-        return false;
-    } else if (!this.start.equals(other.start))
-      return false;
-    if (this.count == null) {
-      if (other.count != null)
-        return false;
-    } else if (!this.count.equals(other.count))
-      return false;
-    if (this.format == null) {
-      if (other.format != null)
-        return false;
-    } else if (!this.format.equals(other.format))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type VariablesArguments is already defined in VariablesArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.variablesReference== null) ? 0 : this.variablesReference.hashCode());
-    result = prime * result + ((this.filter== null) ? 0 : this.filter.hashCode());
-    result = prime * result + ((this.start== null) ? 0 : this.start.hashCode());
-    result = prime * result + ((this.count== null) ? 0 : this.count.hashCode());
-    result = prime * result + ((this.format== null) ? 0 : this.format.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type VariablesArguments is already defined in VariablesArguments.java.");
   }
 }

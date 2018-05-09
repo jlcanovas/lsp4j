@@ -76,33 +76,14 @@ public class LoadedSourceEventArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    LoadedSourceEventArguments other = (LoadedSourceEventArguments) obj;
-    if (this.reason == null) {
-      if (other.reason != null)
-        return false;
-    } else if (!this.reason.equals(other.reason))
-      return false;
-    if (this.source == null) {
-      if (other.source != null)
-        return false;
-    } else if (!this.source.equals(other.source))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type LoadedSourceEventArguments is already defined in LoadedSourceEventArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.reason== null) ? 0 : this.reason.hashCode());
-    result = prime * result + ((this.source== null) ? 0 : this.source.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type LoadedSourceEventArguments is already defined in LoadedSourceEventArguments.java.");
   }
 }

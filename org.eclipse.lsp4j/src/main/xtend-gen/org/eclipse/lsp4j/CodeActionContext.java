@@ -60,27 +60,14 @@ public class CodeActionContext {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    CodeActionContext other = (CodeActionContext) obj;
-    if (this.diagnostics == null) {
-      if (other.diagnostics != null)
-        return false;
-    } else if (!this.diagnostics.equals(other.diagnostics))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CodeActionContext is already defined in CodeActionContext.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.diagnostics== null) ? 0 : this.diagnostics.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CodeActionContext is already defined in CodeActionContext.java.");
   }
 }

@@ -57,27 +57,14 @@ public class CodeLensParams {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    CodeLensParams other = (CodeLensParams) obj;
-    if (this.textDocument == null) {
-      if (other.textDocument != null)
-        return false;
-    } else if (!this.textDocument.equals(other.textDocument))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CodeLensParams is already defined in CodeLensParams.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.textDocument== null) ? 0 : this.textDocument.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type CodeLensParams is already defined in CodeLensParams.java.");
   }
 }

@@ -52,27 +52,14 @@ public class RunInTerminalResponse {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    RunInTerminalResponse other = (RunInTerminalResponse) obj;
-    if (this.processId == null) {
-      if (other.processId != null)
-        return false;
-    } else if (!this.processId.equals(other.processId))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type RunInTerminalResponse is already defined in RunInTerminalResponse.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.processId== null) ? 0 : this.processId.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type RunInTerminalResponse is already defined in RunInTerminalResponse.java.");
   }
 }

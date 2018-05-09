@@ -7,7 +7,6 @@
  */
 package org.eclipse.lsp4j.debug;
 
-import java.util.Arrays;
 import java.util.Map;
 import org.eclipse.lsp4j.debug.RunInTerminalRequestArgumentsKind;
 import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
@@ -156,51 +155,14 @@ public class RunInTerminalRequestArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    RunInTerminalRequestArguments other = (RunInTerminalRequestArguments) obj;
-    if (this.kind == null) {
-      if (other.kind != null)
-        return false;
-    } else if (!this.kind.equals(other.kind))
-      return false;
-    if (this.title == null) {
-      if (other.title != null)
-        return false;
-    } else if (!this.title.equals(other.title))
-      return false;
-    if (this.cwd == null) {
-      if (other.cwd != null)
-        return false;
-    } else if (!this.cwd.equals(other.cwd))
-      return false;
-    if (this.args == null) {
-      if (other.args != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.args, other.args))
-      return false;
-    if (this.env == null) {
-      if (other.env != null)
-        return false;
-    } else if (!this.env.equals(other.env))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type RunInTerminalRequestArguments is already defined in RunInTerminalRequestArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.kind== null) ? 0 : this.kind.hashCode());
-    result = prime * result + ((this.title== null) ? 0 : this.title.hashCode());
-    result = prime * result + ((this.cwd== null) ? 0 : this.cwd.hashCode());
-    result = prime * result + ((this.args== null) ? 0 : Arrays.deepHashCode(this.args));
-    result = prime * result + ((this.env== null) ? 0 : this.env.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type RunInTerminalRequestArguments is already defined in RunInTerminalRequestArguments.java.");
   }
 }

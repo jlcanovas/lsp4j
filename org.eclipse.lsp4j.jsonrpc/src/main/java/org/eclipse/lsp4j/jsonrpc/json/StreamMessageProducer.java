@@ -16,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.eclipse.lsp4j.jsonrpc.JsonRpcException;
 import org.eclipse.lsp4j.jsonrpc.MessageConsumer;
 import org.eclipse.lsp4j.jsonrpc.MessageIssueException;
 import org.eclipse.lsp4j.jsonrpc.MessageIssueHandler;
@@ -41,7 +42,7 @@ public class StreamMessageProducer implements MessageProducer, Closeable, Messag
 	public StreamMessageProducer(InputStream input, MessageJsonHandler jsonHandler) {
 		this(input, jsonHandler, null);
 	}
-	
+
 	public StreamMessageProducer(InputStream input, MessageJsonHandler jsonHandler, MessageIssueHandler issueHandler) {
 		this.input = input;
 		this.jsonHandler = jsonHandler;
@@ -90,7 +91,7 @@ public class StreamMessageProducer implements MessageProducer, Closeable, Messag
 								String httpMethod = debugBuilder.substring(0, debugBuilder.indexOf(" "));
 								if(httpMethod.equals("OPTIONS")) {
 									callback.consume(new CORSMessage());
-								// DONE
+									// DONE
 								} else if (headers.contentLength < 0) {
 									fireError(new IllegalStateException("Missing header " + CONTENT_LENGTH_HEADER
 											+ " in input \"" + debugBuilder + "\""));
@@ -122,8 +123,11 @@ public class StreamMessageProducer implements MessageProducer, Closeable, Messag
 					// The channel whose stream has been listened was closed
 				}
 			} // while (keepRunning)
-		} catch (IOException e) {
-			throw new RuntimeException(e);
+		} catch (IOException exception) {
+			if (JsonRpcException.indicatesStreamClosed(exception))
+				fireStreamClosed(exception);
+			else
+				throw new JsonRpcException(exception);
 		} finally {
 			this.callback = null;
 			this.keepRunning = false;
@@ -134,7 +138,16 @@ public class StreamMessageProducer implements MessageProducer, Closeable, Messag
 	 * Log an error.
 	 */
 	protected void fireError(Throwable error) {
-		LOG.log(Level.SEVERE, error.getMessage(), error);
+		String message = error.getMessage() != null ? error.getMessage() : "An error occurred while processing an incoming message.";
+		LOG.log(Level.SEVERE, message, error);
+	}
+
+	/**
+	 * Report that the stream was closed through an exception.
+	 */
+	protected void fireStreamClosed(Exception cause) {
+		String message = cause.getMessage() != null ? cause.getMessage() : "The input stream was closed.";
+		LOG.log(Level.INFO, message, cause);
 	}
 
 	/**
@@ -170,37 +183,37 @@ public class StreamMessageProducer implements MessageProducer, Closeable, Messag
 	protected boolean handleMessage(InputStream input, Headers headers) throws IOException {
 		if (callback == null)
 			callback = message -> LOG.log(Level.INFO, "Received message: " + message);
-		
-		try {
-			int contentLength = headers.contentLength;
-			byte[] buffer = new byte[contentLength];
-			int bytesRead = 0;
 
-			while (bytesRead < contentLength) {
-				int readResult = input.read(buffer, bytesRead, contentLength - bytesRead);
-				if (readResult == -1)
-					return false;
-				bytesRead += readResult;
-			}
-
-			String content = new String(buffer, headers.charset);
 			try {
-				Message message = jsonHandler.parseMessage(content);
-				callback.consume(message);
-			} catch (MessageIssueException exception) {
-				// An issue was found while parsing or validating the message
-				if (issueHandler != null)
-					issueHandler.handle(exception.getRpcMessage(), exception.getIssues());
-				else
-					fireError(exception);
+				int contentLength = headers.contentLength;
+				byte[] buffer = new byte[contentLength];
+				int bytesRead = 0;
+
+				while (bytesRead < contentLength) {
+					int readResult = input.read(buffer, bytesRead, contentLength - bytesRead);
+					if (readResult == -1)
+						return false;
+					bytesRead += readResult;
+				}
+
+				String content = new String(buffer, headers.charset);
+				try {
+					Message message = jsonHandler.parseMessage(content);
+					callback.consume(message);
+				} catch (MessageIssueException exception) {
+					// An issue was found while parsing or validating the message
+					if (issueHandler != null)
+						issueHandler.handle(exception.getRpcMessage(), exception.getIssues());
+					else
+						fireError(exception);
+				}
+			} catch (Exception exception) {
+				// UnsupportedEncodingException can be thrown by String constructor
+				// JsonParseException can be thrown by jsonHandler
+				// We also catch arbitrary exceptions that are thrown by message consumers in order to keep this thread alive
+				fireError(exception);
 			}
-		} catch (Exception exception) {
-			// UnsupportedEncodingException can be thrown by String constructor
-			// JsonParseException can be thrown by jsonHandler
-			// We also catch arbitrary exceptions that are thrown by message consumers in order to keep this thread alive
-			fireError(exception);
-		}
-		return true;
+			return true;
 	}
 
 	@Override

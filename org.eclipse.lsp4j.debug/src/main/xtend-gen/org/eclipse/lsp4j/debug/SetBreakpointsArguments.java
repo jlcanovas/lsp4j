@@ -7,7 +7,6 @@
  */
 package org.eclipse.lsp4j.debug;
 
-import java.util.Arrays;
 import org.eclipse.lsp4j.debug.Source;
 import org.eclipse.lsp4j.debug.SourceBreakpoint;
 import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
@@ -136,45 +135,14 @@ public class SetBreakpointsArguments {
   @Override
   @Pure
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    SetBreakpointsArguments other = (SetBreakpointsArguments) obj;
-    if (this.source == null) {
-      if (other.source != null)
-        return false;
-    } else if (!this.source.equals(other.source))
-      return false;
-    if (this.breakpoints == null) {
-      if (other.breakpoints != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.breakpoints, other.breakpoints))
-      return false;
-    if (this.lines == null) {
-      if (other.lines != null)
-        return false;
-    } else if (!Arrays.deepEquals(this.lines, other.lines))
-      return false;
-    if (this.sourceModified == null) {
-      if (other.sourceModified != null)
-        return false;
-    } else if (!this.sourceModified.equals(other.sourceModified))
-      return false;
-    return true;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SetBreakpointsArguments is already defined in SetBreakpointsArguments.java.");
   }
   
   @Override
   @Pure
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.source== null) ? 0 : this.source.hashCode());
-    result = prime * result + ((this.breakpoints== null) ? 0 : Arrays.deepHashCode(this.breakpoints));
-    result = prime * result + ((this.lines== null) ? 0 : Arrays.deepHashCode(this.lines));
-    result = prime * result + ((this.sourceModified== null) ? 0 : this.sourceModified.hashCode());
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe type SetBreakpointsArguments is already defined in SetBreakpointsArguments.java.");
   }
 }

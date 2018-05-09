@@ -7,12 +7,12 @@
  */
 package org.eclipse.lsp4j;
 
-import java.util.List;
-import org.eclipse.lsp4j.DocumentFilter;
+import org.eclipse.lsp4j.StaticRegistrationOptions;
+import org.eclipse.lsp4j.generator.JsonRpcData;
 
 /**
- * A document selector is the combination of one or many document filters.
+ * Color provider Options
  */
-@SuppressWarnings("all")
-public interface DocumentSelector extends List<DocumentFilter> {
+/* @JsonRpcData */@SuppressWarnings("all")
+public class ColorProviderOptions extends StaticRegistrationOptions {
 }
